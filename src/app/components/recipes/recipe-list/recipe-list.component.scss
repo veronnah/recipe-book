@@ -1,0 +1,5 @@
+@import "src/styles";
+
+.recipes-column{
+  @include column-cards-flex;
+}

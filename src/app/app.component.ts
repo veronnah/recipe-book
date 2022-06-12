@@ -6,5 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'recipe-book';
+  public loadedTab: string = 'recipe';
+
+  public onNavigate(tabName: string): void {
+    this.loadedTab = tabName;
+  }
 }

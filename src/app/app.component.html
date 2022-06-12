@@ -1,9 +1,9 @@
-<app-header></app-header>
+<app-header (tabSelected)="onNavigate($event)"></app-header>
 <div class="container">
   <div class="row">
     <div class="col-md-12">
-      <app-recipes></app-recipes>
-      <app-shopping-list></app-shopping-list>
+      <app-recipes *ngIf="loadedTab === 'recipe'"></app-recipes>
+      <app-shopping-list *ngIf="loadedTab === 'shopping-list'"></app-shopping-list>
     </div>
   </div>
 </div>

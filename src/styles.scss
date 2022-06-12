@@ -10,3 +10,15 @@ html, body {
 a {
   cursor: pointer;
 }
+
+@mixin column-cards-flex {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+@mixin row-cards-flex {
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+}
