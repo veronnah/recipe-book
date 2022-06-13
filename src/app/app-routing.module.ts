@@ -5,11 +5,11 @@ import { ShoppingListComponent } from "./components/shopping-list/shopping-list.
 import { PageNotFoundComponent } from "./components/page-not-found/page-not-found.component";
 
 const routes: Routes = [
-  {path: '', redirectTo: 'recipes', pathMatch: 'full'},
-  {path: 'recipes', component: RecipesComponent},
-  {path: 'shopping-list', component: ShoppingListComponent},
+  { path: '', redirectTo: 'recipes', pathMatch: 'full' },
+  { path: 'recipes', component: RecipesComponent },
+  { path: 'shopping-list', component: ShoppingListComponent },
 
-  {path: '**', component: PageNotFoundComponent},
+  { path: '**', component: PageNotFoundComponent },
 ];
 
 @NgModule({
