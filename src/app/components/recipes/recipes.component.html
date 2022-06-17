@@ -3,13 +3,6 @@
     <app-recipe-list></app-recipe-list>
   </div>
   <div class="col-md-5 recipe-detail-container">
-    <app-recipe-detail
-      *ngIf="selectedRecipe; else infoText"
-      [recipe]="selectedRecipe">
-    </app-recipe-detail>
-    <ng-template #infoText>
-      <p>Please select a recipe to see its preview!</p>
-      <img src="./assets/images/food-color.svg" alt="plate">
-    </ng-template>
+    <router-outlet></router-outlet>
   </div>
 </div>

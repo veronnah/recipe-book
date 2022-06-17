@@ -22,3 +22,8 @@ a {
   flex-direction: row;
   gap: 12px;
 }
+
+@mixin items-center {
+  align-items: center;
+  justify-content: center;
+}

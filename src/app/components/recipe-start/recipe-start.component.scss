@@ -1,0 +1,19 @@
+@import "src/styles";
+
+.recipe-start-container {
+  @include column-cards-flex;
+  @include items-center;
+
+  p {
+    font-size: 26px;
+    font-weight: 500;
+    max-width: 270px;
+    text-align: center;
+    margin-top: 70px;
+  }
+
+  img {
+    max-width: 200px;
+    opacity: .8;
+  }
+}
