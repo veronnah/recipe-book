@@ -13,7 +13,8 @@ import { ShoppingEditComponent } from './components/shopping-list/shopping-edit/
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { DropdownDirective } from './directives/dropdown.directive';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
-import { RecipeStartComponent } from './components/recipe-start/recipe-start.component';
+import { RecipeStartComponent } from './components/recipes/recipe-start/recipe-start.component';
+import { RecipeEditComponent } from './components/recipes/recipe-edit/recipe-edit.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { RecipeStartComponent } from './components/recipe-start/recipe-start.com
     ShoppingEditComponent,
     DropdownDirective,
     PageNotFoundComponent,
-    RecipeStartComponent
+    RecipeStartComponent,
+    RecipeEditComponent
   ],
   imports: [
     BrowserModule,
