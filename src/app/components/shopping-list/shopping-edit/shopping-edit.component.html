@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col-xs-12">
-    <form [formGroup]="addIngredientsForm" (ngSubmit)="addItem()">
+    <form [formGroup]="addIngredientsForm" (ngSubmit)="onSubmit()">
       <div class="row">
         <div class="col-sm-5 form-group">
           <label for="name">Name</label>
@@ -16,15 +16,17 @@
             type="number"
             id="amount"
             class="form-control"
-            formControlName="amount">
+            formControlName="amount"
+            pattern="^[1-9]+[0-9]*$">
         </div>
       </div>
       <div class="row">
         <div class="col-xs-12 actions">
           <button
             type="submit"
-            class="btn btn-success">
-            Add
+            class="btn btn-success"
+            [disabled]="addIngredientsForm.invalid">
+            {{ editMode ? 'Update' : 'Add' }}
           </button>
           <button type="button" class="btn btn-danger">Delete</button>
           <button type="button" class="btn btn-primary">Clear</button>
