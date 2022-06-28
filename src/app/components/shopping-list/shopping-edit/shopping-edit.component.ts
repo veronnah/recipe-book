@@ -3,6 +3,7 @@ import { Ingredient } from "../../../models/ingredient.model";
 import { ShoppingListService } from "../../../services/shopping-list.service";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { Subscription } from "rxjs";
+import { Patterns } from "../../../constants/patterns.constant";
 
 @Component({
   selector: 'app-shopping-edit',
@@ -14,8 +15,8 @@ export class ShoppingEditComponent implements OnInit, OnDestroy {
   public editedItemIdx: number;
   public editedItem: Ingredient;
   public editMode: boolean;
-
   public editingSub: Subscription;
+  public onlyPositiveNumbers: string;
 
   constructor(
     private shoppingListService: ShoppingListService,
@@ -26,6 +27,11 @@ export class ShoppingEditComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.initIngredientsForm();
     this.getEditingItem();
+    this.setPattern();
+  }
+
+  public setPattern(): void{
+    this.onlyPositiveNumbers = Patterns.onlyPositiveNum;
   }
 
   public initIngredientsForm(): void {
