@@ -20,8 +20,8 @@
       </button>
       <ul class="dropdown-menu">
         <li (click)="addToShoppingList()"><a>To shopping list</a></li>
-        <li><a routerLink="edit">Edit recipe</a></li>
-        <li><a>Delete recipe</a></li>
+        <li routerLink="edit"><a>Edit recipe</a></li>
+        <li (click)="onDeleteRecipe()"><a>Delete recipe</a></li>
       </ul>
     </div>
   </div>

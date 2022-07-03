@@ -11,6 +11,7 @@
           </button>
           <button
             type="button"
+            (click)="onCancel()"
             class="btn btn-danger">
             Cancel
           </button>
@@ -36,13 +37,17 @@
               type="text"
               id="imagePath"
               class="form-control"
-              formControlName="recipeImagePath">
+              #imagePath
+              formControlName="imagePath">
           </div>
         </div>
       </div>
       <div class="row">
         <div class="col-xs-12">
-          <img class="img-responsive" src="" alt="">
+          <img
+            class="img-responsive"
+            [src]="imagePath.value"
+            alt="">
         </div>
       </div>
       <div class="row">
@@ -78,10 +83,14 @@
                 formControlName="amount">
             </div>
             <div class="col-xs-2">
-              <button class="btn btn-danger">X</button>
+              <button
+                type="button"
+                class="btn btn-danger"
+                (click)="onDeleteIngredients(i)">
+                X
+              </button>
             </div>
           </div>
-          <hr>
           <div class="row">
             <div class="col-xs-12">
               <button
