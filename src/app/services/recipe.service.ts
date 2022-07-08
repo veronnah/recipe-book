@@ -9,8 +9,7 @@ import { Subject } from "rxjs";
 })
 export class RecipeService {
   public recipesChanged: Subject<Recipe[]> = new Subject<Recipe[]>();
-  public recipes: Recipe[] = [
-  ];
+  public recipes: Recipe[] = [];
 
   constructor(private shoppingListService: ShoppingListService) {
   }
