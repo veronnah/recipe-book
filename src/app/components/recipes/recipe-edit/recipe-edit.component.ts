@@ -39,6 +39,7 @@ export class RecipeEditComponent implements OnInit {
             this.initRecipeIngredientsForm();
           }
           this.initEditForm();
+          console.log(this.recipeForm.invalid)
         }
       );
   }
