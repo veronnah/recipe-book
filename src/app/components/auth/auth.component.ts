@@ -50,6 +50,7 @@ export class AuthComponent implements OnInit {
     }
 
     authObserve.subscribe({
+      // TODO: do something with resp or delete it
         next: (response: SignupResponse) => {
           this.isSubmitted = false;
           this.enableControls();
