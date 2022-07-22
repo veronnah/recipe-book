@@ -8,7 +8,7 @@ import { map, Observable, tap } from "rxjs";
 @Injectable({
   providedIn: 'root'
 })
-export class DataStorageServiceService {
+export class DataStorageService {
 
   constructor(
     private http: HttpClient,
@@ -24,7 +24,8 @@ export class DataStorageServiceService {
   }
 
   public fetchRecipes(): Observable<Recipe[]> {
-    return this.http.get<Recipe[]>(`${environment.apiUrl}recipes.json`)
+    return this.http.get<Recipe[]>(
+      `${environment.apiUrl}recipes.json`)
       .pipe(
         map(recipes => {
           return recipes.map(recipe => {
@@ -37,7 +38,7 @@ export class DataStorageServiceService {
         tap((recipes: Recipe[]) => {
           this.recipeService.setRecipes(recipes);
         })
-      );
+      )
   }
 
 }

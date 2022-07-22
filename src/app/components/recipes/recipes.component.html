@@ -2,7 +2,7 @@
   <div class="col-md-5">
     <app-recipe-list></app-recipe-list>
   </div>
-  <div class="col-md-5 recipe-detail-container">
-    <router-outlet></router-outlet>
+  <div [@routeAnimations]="prepareRoute(outlet)" class="col-md-5 recipe-detail-container">
+    <router-outlet #outlet="outlet"></router-outlet>
   </div>
 </div>

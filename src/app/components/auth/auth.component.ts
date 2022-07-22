@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { AuthService } from "../../services/auth.service";
 import { SignupResponse } from "../../models/signupResponse.model";
+import { Observable } from "rxjs";
+import { AuthResponse } from "../../models/authResponse.model";
+import { Router } from "@angular/router";
 
 @Component({
   selector: 'app-auth',
@@ -17,6 +20,7 @@ export class AuthComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private authService: AuthService,
+    private router: Router,
   ) {
   }
 
@@ -35,26 +39,29 @@ export class AuthComponent implements OnInit {
     if (this.authForm.invalid) {
       return;
     }
+    let authObserve: Observable<AuthResponse>;
     this.isSubmitted = true;
     this.disableControls();
 
     if (this.isLoginMode) {
-
+      authObserve = this.authService.logIn(this.authForm.value);
     } else {
-      this.authService.signUp(this.authForm.value)
-        .subscribe({
-            next: (response: SignupResponse) => {
-              this.isSubmitted = false;
-              this.enableControls();
-            },
-            error: (errorMessage) => {
-              this.error = errorMessage;
-              this.isSubmitted = false;
-              this.enableControls();
-            },
-          }
-        )
+      authObserve = this.authService.signUp(this.authForm.value)
     }
+
+    authObserve.subscribe({
+        next: (response: SignupResponse) => {
+          this.isSubmitted = false;
+          this.enableControls();
+          this.router.navigate(['recipes']);
+        },
+        error: (errorMessage) => {
+          this.error = errorMessage;
+          this.isSubmitted = false;
+          this.enableControls();
+        },
+      }
+    )
     this.authForm.reset();
   }
 

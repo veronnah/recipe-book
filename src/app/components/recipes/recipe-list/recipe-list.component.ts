@@ -2,7 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Recipe } from "../../../models/recipe.model";
 import { RecipeService } from "../../../services/recipe.service";
 import { Subscription } from "rxjs";
-import { DataStorageServiceService } from "../../../services/data-storage-service.service";
+import { DataStorageService } from "../../../services/data-storage.service";
 
 @Component({
   selector: 'app-recipe-list',
@@ -15,7 +15,7 @@ export class RecipeListComponent implements OnInit, OnDestroy {
 
   constructor(
     private recipeService: RecipeService,
-    private dataStorageService: DataStorageServiceService) {
+    private dataStorageService: DataStorageService) {
   }
 
   ngOnInit(): void {
