@@ -12,6 +12,7 @@ import { DataStorageService } from "../../../services/data-storage.service";
 export class RecipeDetailComponent implements OnInit {
   public recipe: Recipe;
   public recipeId: number;
+  public isLoaded: boolean;
 
   constructor(
     private recipeService: RecipeService,
@@ -22,7 +23,17 @@ export class RecipeDetailComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.getRecipe();
+    this.getRecipes();
+  }
+
+  public getRecipes(): void {
+    this.dataStorageService.fetchRecipes()
+      .subscribe((recipes: Recipe[]) => {
+        if (recipes) {
+          this.isLoaded = true;
+          this.getRecipe();
+        }
+      })
   }
 
   public getRecipe(): void {
@@ -33,7 +44,7 @@ export class RecipeDetailComponent implements OnInit {
       });
   }
 
-  public onDeleteRecipe() {
+  public onDeleteRecipe(): void {
     this.recipeService.deleteRecipe(this.recipeId);
     this.router.navigate(['/']);
   }

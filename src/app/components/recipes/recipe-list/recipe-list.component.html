@@ -1,16 +1,17 @@
-<div class="row">
-  <div class="col-xs-12">
-    <button class="btn btn-success" routerLink="new">New Recipe</button>
+<div *ngIf="isListShown">
+  <div class="row">
+    <div class="col-xs-12">
+      <button class="btn btn-success" routerLink="new">New Recipe</button>
+    </div>
+  </div>
+  <hr>
+  <div class="row">
+    <div class="col-xs-12 recipes-column">
+      <app-recipe-item
+        *ngFor="let recipe of recipes; let i = index"
+        [recipe]="recipe"
+        [recipeId]="i">
+      </app-recipe-item>
+    </div>
   </div>
 </div>
-<hr>
-<div class="row">
-  <div class="col-xs-12 recipes-column">
-    <app-recipe-item
-      *ngFor="let recipe of recipes; let i = index"
-      [recipe]="recipe"
-      [recipeId]="i">
-    </app-recipe-item>
-  </div>
-</div>
-

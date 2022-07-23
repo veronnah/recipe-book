@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnDestroy, OnInit, Output } from '@angular/core';
 import { Recipe } from "../../../models/recipe.model";
 import { RecipeService } from "../../../services/recipe.service";
 import { Subscription } from "rxjs";
@@ -12,6 +12,8 @@ import { DataStorageService } from "../../../services/data-storage.service";
 export class RecipeListComponent implements OnInit, OnDestroy {
   public recipes: Recipe[];
   public recipeChangesSub: Subscription;
+  public isListShown: boolean;
+  @Output() isLoaded: EventEmitter<boolean> = new EventEmitter<boolean>();
 
   constructor(
     private recipeService: RecipeService,
@@ -24,7 +26,14 @@ export class RecipeListComponent implements OnInit, OnDestroy {
   }
 
   public fetchRecipes(): void {
-    this.dataStorageService.fetchRecipes().subscribe();
+    this.dataStorageService.fetchRecipes()
+      .subscribe((recipes: Recipe[]) => {
+        if (recipes) {
+          this.isListShown = true;
+          this.isLoaded.emit(true);
+          this.recipeService.isRecipesLoaded.next(true);
+        }
+      });
   }
 
   public setRecipes(): void {

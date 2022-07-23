@@ -1,17 +1,14 @@
 import { Component } from '@angular/core';
-import { Data, RouterOutlet } from "@angular/router";
-import { fader } from "../../animations/route-animations";
 
 @Component({
   selector: 'app-recipes',
   templateUrl: './recipes.component.html',
-  styleUrls: ['./recipes.component.scss'],
-  animations: [
-    fader,
-  ]
+  styleUrls: ['./recipes.component.scss']
 })
 export class RecipesComponent {
-  public prepareRoute(outlet: RouterOutlet): RouterOutlet | Data {
-    return outlet && outlet.activatedRouteData['animation'];
+  public isLoaded: boolean;
+
+  public onLoaded(isLoaded: boolean): void {
+    this.isLoaded = isLoaded;
   }
 }

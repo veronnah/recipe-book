@@ -1,8 +1,11 @@
 <div class="row">
   <div class="col-md-5">
-    <app-recipe-list></app-recipe-list>
+    <app-recipe-list (isLoaded)="onLoaded($event)"></app-recipe-list>
   </div>
-  <div [@routeAnimations]="prepareRoute(outlet)" class="col-md-5 recipe-detail-container">
-    <router-outlet #outlet="outlet"></router-outlet>
+  <div *ngIf="isLoaded; else loader" class="col-md-5 recipe-detail-container">
+    <router-outlet></router-outlet>
   </div>
 </div>
+<ng-template #loader>
+  <app-loader></app-loader>
+</ng-template>

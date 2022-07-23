@@ -7,11 +7,14 @@ import { Subject } from "rxjs";
 @Injectable({
   providedIn: 'root'
 })
-export class RecipeService {
+export class RecipeService{
   public recipesChanged: Subject<Recipe[]> = new Subject<Recipe[]>();
+  public isRecipesLoaded: Subject<boolean> = new Subject<boolean>();
   public recipes: Recipe[] = [];
 
-  constructor(private shoppingListService: ShoppingListService) {
+  constructor(
+    private shoppingListService: ShoppingListService,
+  ) {
   }
 
   public setRecipes(recipes: Recipe[]) {
