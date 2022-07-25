@@ -23,17 +23,7 @@ export class RecipeDetailComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.getRecipes();
-  }
-
-  public getRecipes(): void {
-    this.dataStorageService.fetchRecipes()
-      .subscribe((recipes: Recipe[]) => {
-        if (recipes) {
-          this.isLoaded = true;
-          this.getRecipe();
-        }
-      })
+    this.getRecipe();
   }
 
   public getRecipe(): void {
@@ -41,6 +31,7 @@ export class RecipeDetailComponent implements OnInit {
       .subscribe((params: Params) => {
         this.recipeId = +params['id'];
         this.recipe = this.recipeService.getRecipe(this.recipeId);
+        this.isLoaded = true;
       });
   }
 
