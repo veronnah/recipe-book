@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Router } from "@angular/router";
 import { FormArray, FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { RecipeService } from "../../../services/recipe.service";
@@ -9,7 +9,6 @@ import { Patterns } from "../../../constants/patterns.constant";
   selector: 'app-recipe-edit',
   templateUrl: './recipe-edit.component.html',
   styleUrls: ['./recipe-edit.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class RecipeEditComponent implements OnInit {
   public recipeId: number;
@@ -61,9 +60,10 @@ export class RecipeEditComponent implements OnInit {
   }
 
   private initEditForm(): void {
+    console.log(this.recipe)
     this.recipeForm = this.fb.group({
       name: [this.recipe?.name, Validators.required],
-      imagePath: [this.recipe?.imagePath, Validators.required],
+      image: [this.recipe?.image, Validators.required],
       description: [this.recipe?.description, Validators.required],
       ingredients: this.recipeIngredients,
     })
@@ -87,6 +87,36 @@ export class RecipeEditComponent implements OnInit {
 
   public onDeleteIngredients(index: number): void {
     this.recipeFormArray.removeAt(index);
+  }
+
+  public addPhoto(event: any) {
+    const reader = new FileReader();
+    if (event.target.files && event.target.files.length
+      || event.dataTransfer.files && event.dataTransfer.files.length) {
+      const [file] = event.target.files || event.dataTransfer.files;
+      reader.readAsDataURL(file);
+
+      reader.onload = () => {
+
+        this.recipeForm.patchValue({
+          image: reader.result
+        });
+        console.log(this.recipeForm.value)
+      }
+    }
+  }
+
+  public onDragOver(event: any) {
+    event.preventDefault();
+  }
+
+  public onDragSuccess(event: any) {
+    event.preventDefault();
+    this.addPhoto(event);
+  }
+
+  public delPhoto() {
+    this.recipeForm.get('image')?.patchValue(null);
   }
 
   public onSubmit(): void {

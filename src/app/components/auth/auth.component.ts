@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { AuthService } from "../../services/auth.service";
-import { SignupResponse } from "../../models/signupResponse.model";
 import { Observable } from "rxjs";
 import { AuthResponse } from "../../models/authResponse.model";
 import { Router } from "@angular/router";
@@ -31,7 +30,7 @@ export class AuthComponent implements OnInit {
   private initForm(): void {
     this.authForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
-      password: ['', Validators.required],
+      password: ['', [Validators.required, Validators.minLength(8)]],
     })
   }
 
@@ -50,8 +49,7 @@ export class AuthComponent implements OnInit {
     }
 
     authObserve.subscribe({
-      // TODO: do something with resp or delete it
-        next: (response: SignupResponse) => {
+        next: () => {
           this.isSubmitted = false;
           this.enableControls();
           this.router.navigate(['recipes']);
