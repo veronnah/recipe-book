@@ -1,4 +1,4 @@
-<div *ngIf="isLoaded">
+<div *ngIf="isLoaded; else loader">
   <div class="row">
     <div class="col-xs-12 img-container">
       <img
@@ -43,3 +43,6 @@
     </div>
   </div>
 </div>
+<ng-template #loader>
+  <app-loader></app-loader>
+</ng-template>
