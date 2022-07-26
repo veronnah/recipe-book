@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Ingredient } from "../../../models/ingredient.model";
 import { ShoppingListService } from "../../../services/shopping-list.service";
-import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from "@angular/forms";
 import { Subscription } from "rxjs";
 import { Patterns } from "../../../constants/patterns.constant";
 
@@ -11,7 +11,7 @@ import { Patterns } from "../../../constants/patterns.constant";
   styleUrls: ['./shopping-edit.component.scss']
 })
 export class ShoppingEditComponent implements OnInit, OnDestroy {
-  public addIngredientsForm: FormGroup;
+  public addIngredientsForm: UntypedFormGroup;
   public editedItemIdx: number;
   public editedItem: Ingredient;
   public editMode: boolean;
@@ -20,7 +20,7 @@ export class ShoppingEditComponent implements OnInit, OnDestroy {
 
   constructor(
     private shoppingListService: ShoppingListService,
-    public fb: FormBuilder,
+    public fb: UntypedFormBuilder,
   ) {
   }
 

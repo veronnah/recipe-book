@@ -10,6 +10,8 @@ import { AuthInterceptorService } from "./services/auth-interceptor.service";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { SharedModule } from "./shared/shared.module";
 import { CoreModule } from "./core.module";
+import { StoreModule } from "@ngrx/store";
+import { shoppingListReducer } from "./components/shopping-list/store/shopping-list.reducer";
 
 @NgModule({
   declarations: [
@@ -23,6 +25,7 @@ import { CoreModule } from "./core.module";
     HttpClientModule,
     CoreModule,
     SharedModule,
+    StoreModule.forRoot({ shoppingList: shoppingListReducer }),
     AppRoutingModule,
   ],
   providers: [

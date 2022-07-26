@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Router } from "@angular/router";
-import { FormArray, FormBuilder, FormGroup, Validators } from "@angular/forms";
+import { FormArray, FormGroup, UntypedFormBuilder, Validators } from "@angular/forms";
 import { RecipeService } from "../../../services/recipe.service";
 import { Recipe } from "../../../models/recipe.model";
 import { Patterns } from "../../../constants/patterns.constant";
@@ -20,7 +20,7 @@ export class RecipeEditComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private fb: FormBuilder,
+    private fb: UntypedFormBuilder,
     private recipeService: RecipeService,
   ) {
   }
@@ -60,7 +60,6 @@ export class RecipeEditComponent implements OnInit {
   }
 
   private initEditForm(): void {
-    console.log(this.recipe)
     this.recipeForm = this.fb.group({
       name: [this.recipe?.name, Validators.required],
       image: [this.recipe?.image, Validators.required],
@@ -101,7 +100,6 @@ export class RecipeEditComponent implements OnInit {
         this.recipeForm.patchValue({
           image: reader.result
         });
-        console.log(this.recipeForm.value)
       }
     }
   }
