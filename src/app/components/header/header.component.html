@@ -17,8 +17,9 @@
       </ul>
       <ul class="nav navbar-nav navbar-right" *ngIf="isAuthenticated">
         <li class="dropdown" appDropdown>
-          <a class="dropdown-toggle" role="button">Manage <span class="caret"></span></a>
+          <img src="assets/images/woman-cook.svg" alt="user's avatar">
           <ul class="dropdown-menu">
+            <li><a>{{ userEmail }}</a></li>
             <li (click)="onSaveData()"><a>Save data</a></li>
             <li (click)="onFetchData()"><a>Fetch data</a></li>
           </ul>

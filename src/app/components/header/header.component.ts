@@ -13,6 +13,7 @@ import { User } from "../../models/user.model";
 export class HeaderComponent implements OnInit, OnDestroy {
   private userSub: Subscription;
   public isAuthenticated: boolean;
+  public userEmail: string;
 
   constructor(
     private dataStorageService: DataStorageService,
@@ -23,6 +24,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.userSub = this.authService.user.subscribe((userData: User) => {
       this.isAuthenticated = !!userData;
+      this.userEmail = userData.email;
     });
   }
 

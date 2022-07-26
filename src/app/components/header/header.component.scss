@@ -1,4 +1,11 @@
-.header{
-  background-color: aquamarine;
-  color: black;
+.navbar {
+  ul {
+    li {
+      cursor: pointer;
+
+      img {
+        width: 50px;
+      }
+    }
+  }
 }
