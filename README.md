@@ -4,7 +4,7 @@
 https://recipe-book-7a3fa.web.app/
 
 <hr>
-![image](https://user-images.githubusercontent.com/60988349/181011806-85a7a234-907b-45b5-a230-55a3a58361ae.png)
+![image](https://user-images.githubusercontent.com/60988349/181102494-eeb3873c-85f5-40c2-ab2f-f313caa91f12.png)
 <hr>
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.7.
