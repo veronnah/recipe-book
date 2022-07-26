@@ -3,8 +3,8 @@
 ## Link to the host
 https://recipe-book-7a3fa.web.app/
 
-<hr>
-![image](https://user-images.githubusercontent.com/60988349/181011806-85a7a234-907b-45b5-a230-55a3a58361ae.png)
+![image](https://user-images.githubusercontent.com/60988349/181102555-24940e92-3190-472f-bad1-c1022f212201.png)
+
 <hr>
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.7.
