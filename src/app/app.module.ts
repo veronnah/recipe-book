@@ -10,6 +10,10 @@ import { AuthInterceptorService } from "./services/auth-interceptor.service";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { SharedModule } from "./shared/shared.module";
 import { CoreModule } from "./core.module";
+import { StoreModule } from "@ngrx/store";
+import { EffectsModule } from '@ngrx/effects';
+import { AuthEffects } from './components/auth/store/auth.effects';
+import * as fromApp from './components/store/app.reducer';
 
 @NgModule({
   declarations: [
@@ -23,6 +27,8 @@ import { CoreModule } from "./core.module";
     HttpClientModule,
     CoreModule,
     SharedModule,
+    StoreModule.forRoot(fromApp.appReducer),
+    EffectsModule.forRoot([AuthEffects]),
     AppRoutingModule,
   ],
   providers: [
