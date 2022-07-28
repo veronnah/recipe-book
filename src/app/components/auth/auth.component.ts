@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, UntypedFormBuilder, Validators } from "@angular/forms";
+import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { AuthService } from "../../services/auth.service";
 import { Observable } from "rxjs";
 import { AuthResponse } from "../../models/authResponse.model";
@@ -17,7 +17,7 @@ export class AuthComponent implements OnInit {
   public error: string;
 
   constructor(
-    private fb: UntypedFormBuilder,
+    private fb: FormBuilder,
     private authService: AuthService,
     private router: Router,
   ) {
@@ -77,5 +77,4 @@ export class AuthComponent implements OnInit {
   public onSwitchMode(): void {
     this.isLoginMode = !this.isLoginMode;
   }
-
 }
