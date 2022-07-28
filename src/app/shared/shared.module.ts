@@ -4,13 +4,13 @@ import { CommonModule } from "@angular/common";
 import { LoaderComponent } from "./components/loader/loader.component";
 import { SpinnerComponent } from "./components/spinner/spinner.component";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
-import { DropdownDirective } from "./directives/dropdown.directive";
+import { ToggleClassOpenDirective } from "./directives/toggleClassOpen.directive";
 
 @NgModule({
   declarations: [
     LoaderComponent,
     SpinnerComponent,
-    DropdownDirective,
+    ToggleClassOpenDirective,
   ],
   imports: [
     RouterModule,
@@ -23,7 +23,7 @@ import { DropdownDirective } from "./directives/dropdown.directive";
     ReactiveFormsModule,
     LoaderComponent,
     SpinnerComponent,
-    DropdownDirective,
+    ToggleClassOpenDirective,
   ],
 })
 export class SharedModule {

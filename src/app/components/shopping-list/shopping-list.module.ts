@@ -6,7 +6,6 @@ import { ReactiveFormsModule } from "@angular/forms";
 import { ShoppingListRoutingModule } from "./shopping-list-routing.module";
 import { SharedModule } from "../../shared/shared.module";
 
-
 @NgModule({
   declarations: [
     ShoppingListComponent,
