@@ -3,7 +3,7 @@ import { HttpEvent, HttpHandler, HttpInterceptor, HttpParams, HttpRequest } from
 import { exhaustMap, map, Observable, take } from "rxjs";
 import { AuthService } from "./auth.service";
 import { Store } from '@ngrx/store';
-import * as fromApp from '../components/store/app.reducer';
+import * as fromApp from '../store/app.reducer';
 
 @Injectable({
   providedIn: 'root'

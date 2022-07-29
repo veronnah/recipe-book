@@ -22,15 +22,15 @@ export function authReducer(
       return {
         ...state,
         authError: null,
+        loading: true,
       }
     case AuthActions.LOGIN_SUCCESS:
       const user = new User(
         action.payload.email,
-        action.payload.id,
-        action.payload.tokenExpirationDate,
         action.payload.token,
+        action.payload.tokenExpirationDate,
+        action.payload.id,
       );
-      console.log(user)
       return {
         ...state,
         user: user,
@@ -43,6 +43,12 @@ export function authReducer(
         user: null,
         authError: action.payload,
         loading: false,
+      }
+    case AuthActions.SIGNUP_START:
+      return {
+        ...state,
+        authError: null,
+        loading: true,
       }
     case AuthActions.LOGOUT:
       return {

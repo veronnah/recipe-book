@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from "./components/header/header.component";
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { HTTP_INTERCEPTORS, HttpClientModule } from "@angular/common/http";
-import { AuthInterceptorService } from "./services/auth-interceptor.service";
+import { AuthInterceptorService } from "./components/auth/auth-interceptor.service";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { SharedModule } from "./shared/shared.module";
 import { CoreModule } from "./core.module";

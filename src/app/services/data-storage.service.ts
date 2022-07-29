@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
-import { RecipeService } from "./recipe.service";
+import { RecipeService } from "../components/recipes/recipe.service";
 import { Recipe } from "../models/recipe.model";
 import { environment } from "../../environments/environment";
 import { map, Observable, tap } from "rxjs";

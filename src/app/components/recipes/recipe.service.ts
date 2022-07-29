@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
-import { Recipe } from "../models/recipe.model";
-import { Ingredient } from "../models/ingredient.model";
+import { Recipe } from "../../models/recipe.model";
+import { Ingredient } from "../../models/ingredient.model";
 import { Subject } from "rxjs";
 import { Store } from "@ngrx/store";
-import * as ShoppingListAction from "../components/shopping-list/store/shopping-list.actions";
-import * as fromApp from '../components/store/app.reducer';
+import * as ShoppingListAction from "../shopping-list/store/shopping-list.actions";
+import * as fromApp from '../store/app.reducer';
 
 @Injectable({
   providedIn: 'root'
