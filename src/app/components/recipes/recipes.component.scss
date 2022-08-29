@@ -1,3 +1,14 @@
-.recipe-detail-container {
-  position: relative;
+.recipes-container {
+  margin-top: 70px;
+
+  .recipe-list-container {
+    max-width: 690px;
+    width: 100%;
+  }
+
+  .recipe-detail-container {
+    position: relative;
+    max-width: 568px;
+    width: 100%;
+  }
 }

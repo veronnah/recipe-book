@@ -1,21 +1,15 @@
 <div *ngIf="isLoaded; else loader">
-  <div class="row">
-    <div class="col-xs-12 img-container">
-      <img
-        [src]="recipe?.image"
-        alt="{{recipe?.name}}"
-        class="img-responsive">
-    </div>
+  <div class="img-container d-flex justify-center">
+    <img
+      [src]="recipe?.image"
+      alt="{{ recipe?.name }}"
+      class="img-responsive">
   </div>
-  <div class="row">
-    <div class="col-xs-12">
-      <h1>{{recipe?.name}}</h1>
-    </div>
-  </div>
+  <h2>{{ recipe?.name }}</h2>
   <div class="row">
     <div class="col-xs-12">
       <div class="btn-group" appToggleClassOpen>
-        <button type="button" class="btn btn-primary dropdown-toggle">
+        <button type="button" class="btn-main dropdown-toggle">
           Manage recipe <span class="caret"></span>
         </button>
         <ul class="dropdown-menu">

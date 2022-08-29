@@ -3,13 +3,13 @@
   class="list-group-item clearfix"
   routerLinkActive="active">
   <div class="pull-left">
-    <h4 class="list-group-item-heading">{{recipe.name}}</h4>
-    <p class="list-group-item-text">{{recipe.description}}</p>
+    <h4 class="list-group-item-heading">{{ recipe.name }}</h4>
+    <p class="list-group-item-text">{{ recipe.description }}</p>
   </div>
-  <span class="pull-right">
+  <div class="pull-right">
     <img
       [src]="recipe.image"
-      alt="{{recipe.name}}"
+      alt="{{ recipe.name }}"
       class="img-responsive">
-   </span>
+  </div>
 </a>

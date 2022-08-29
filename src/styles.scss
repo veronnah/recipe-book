@@ -7,22 +7,67 @@ html, body {
   height: 100%;
 }
 
+body {
+  background-color: #f9f9f9;
+}
+
+.wrapper {
+  max-width: 1360px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 10px;
+}
+
 a {
   cursor: pointer;
+}
+
+button {
+  border: none;
+  padding: 6px 12px;
+  border-radius: 4px;
+  transition: .3s;
 }
 
 .d-flex {
   display: flex;
 }
 
+.align-center {
+  align-items: center;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
 .justify-around {
   justify-content: space-around;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.btn-green {
+  color: #fff;
+  text-transform: uppercase;
+  background-color: #b6cf7d;
+
+  &:hover {
+    background-color: #9db66a;
+  }
+}
+
+.btn-main {
+  color: #fff;
+  background-color: #000;
 }
 
 @mixin column-cards-flex {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 20px;
 }
 
 @mixin row-cards-flex {

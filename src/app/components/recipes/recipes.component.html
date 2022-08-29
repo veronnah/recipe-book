@@ -1,8 +1,6 @@
-<div class="row d-flex justify-around">
-  <div class="col-md-5">
-    <app-recipe-list (isLoaded)="onLoaded($event)"></app-recipe-list>
-  </div>
-  <div *ngIf="isLoaded; else loader" class="col-md-5 recipe-detail-container">
+<div class="recipes-container d-flex justify-between">
+  <app-recipe-list class="recipe-list-container" (isLoaded)="onLoaded($event)"></app-recipe-list>
+  <div *ngIf="isLoaded; else loader" class="recipe-detail-container">
     <router-outlet></router-outlet>
   </div>
 </div>

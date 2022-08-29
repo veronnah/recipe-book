@@ -1,7 +1,15 @@
 .navbar {
+  -webkit-box-shadow: 0 8px 9px -7px rgba(0,0,0,0.21);
+  -moz-box-shadow: 0 8px 9px -7px rgba(0,0,0,0.21);
+  box-shadow: 0 8px 9px -7px rgba(0,0,0,0.21);
+
   ul {
     li {
       cursor: pointer;
+
+      button {
+        margin-right: 24px;
+      }
 
       img {
         width: 50px;
