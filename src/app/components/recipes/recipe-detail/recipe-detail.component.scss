@@ -3,3 +3,23 @@
     border-radius: 4px;
   }
 }
+
+.dropdown-menu {
+  top: 35px;
+}
+
+.btn-group {
+  &.open {
+    .dropdown-toggle {
+      box-shadow: none;
+    }
+  }
+}
+
+.dropdown-toggle {
+  background-color: transparent;
+
+  svg {
+    fill: #4c2109;
+  }
+}

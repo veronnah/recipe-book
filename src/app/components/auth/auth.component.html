@@ -22,7 +22,7 @@
       </div>
       <div class="actions">
         <button
-          class="btn btn-primary btn-login"
+          class="btn btn-main btn-login"
           type="submit"
           [disabled]="authForm.invalid">
           {{ isLoginMode ? 'Login' : 'Sign up' }}
@@ -30,7 +30,7 @@
         </button>
         |
         <button
-          class="btn btn-primary"
+          class="btn btn-main"
           (click)="onSwitchMode()"
           type="button">
           Switch to {{ isLoginMode ? 'Sign up' : 'Login' }}

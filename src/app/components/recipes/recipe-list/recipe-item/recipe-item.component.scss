@@ -3,17 +3,28 @@
   padding: 0;
 
   &.active {
-    color: #fff;
-    background-color: #000;
-    border-color: #2e2727;
+    color: #000;
+    background-color: #f5f5f5;
+    border-color: #bbbbbb;
 
-    .list-group-item-text {
-      color: unset;
+    .pull-left {
+      .list-group-item-heading {
+        font-weight: 600;
+      }
     }
   }
 
-  .pull-left{
+  .pull-left {
     padding: 10px;
+
+    .list-group-item-heading {
+      color: #4c2109;
+      font-size: 20px;
+    }
+
+    .list-group-item-text {
+      color: #7d4e34;
+    }
   }
 
   .pull-right {

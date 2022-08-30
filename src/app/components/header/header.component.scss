@@ -1,7 +1,29 @@
 .navbar {
-  -webkit-box-shadow: 0 8px 9px -7px rgba(0,0,0,0.21);
-  -moz-box-shadow: 0 8px 9px -7px rgba(0,0,0,0.21);
-  box-shadow: 0 8px 9px -7px rgba(0,0,0,0.21);
+  -webkit-box-shadow: 0 8px 9px -7px rgba(0, 0, 0, 0.21);
+  -moz-box-shadow: 0 8px 9px -7px rgba(0, 0, 0, 0.21);
+  box-shadow: 0 8px 9px -7px rgba(0, 0, 0, 0.21);
+
+  a {
+    transition: .4s;
+
+    &:hover {
+      color: #585050;
+    }
+  }
+
+  .navbar-nav {
+    .active {
+      a {
+        color: #585050;
+        background-color: #d6622c1a;
+      }
+    }
+  }
+
+  .navbar-brand {
+    color: #2e2626;
+    padding: 15px 15px 15px 0;
+  }
 
   ul {
     li {

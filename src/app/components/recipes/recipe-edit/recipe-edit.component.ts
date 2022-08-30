@@ -4,6 +4,7 @@ import { FormArray, FormGroup, UntypedFormBuilder, Validators } from "@angular/f
 import { RecipeService } from "../../../services/recipe.service";
 import { Recipe } from "../../../models/recipe.model";
 import { Patterns } from "../../../constants/patterns.constant";
+import { DataStorageService } from '../../../services/data-storage.service';
 
 @Component({
   selector: 'app-recipe-edit',
@@ -22,6 +23,7 @@ export class RecipeEditComponent implements OnInit {
     private router: Router,
     private fb: UntypedFormBuilder,
     private recipeService: RecipeService,
+    private dataStorageService: DataStorageService,
   ) {
   }
 
@@ -123,6 +125,7 @@ export class RecipeEditComponent implements OnInit {
     } else {
       this.recipeService.addRecipe(this.recipeForm.value);
     }
+    this.dataStorageService.storeRecipes();
     this.onCancel();
   }
 
