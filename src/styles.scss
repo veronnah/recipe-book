@@ -22,11 +22,30 @@ a {
   cursor: pointer;
 }
 
+.img {
+  max-height: 400px;
+}
+
+.units-field {
+  .mat-form-field-wrapper {
+    height: 78px;
+    width: 50px;
+  }
+}
+
+.mat-primary .mat-option.mat-selected:not(.mat-option-disabled) {
+  color: #71884d;
+}
+
 button {
   border: none;
   padding: 6px 12px;
   border-radius: 4px;
   transition: .3s;
+}
+
+.text-center {
+  text-align: center;
 }
 
 .d-flex {

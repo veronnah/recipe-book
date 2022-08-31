@@ -2,7 +2,7 @@
   <div class="d-flex justify-end">
     <div class="btn-group" appToggleClassOpen>
       <button class="dropdown-toggle">
-        <svg width="30px" height="30px" viewBox="0 0 1024 1024"
+        <svg width="25px" height="25px" viewBox="0 0 1024 1024"
              xmlns="http://www.w3.org/2000/svg">
           <path
             d="M899.4 638.2h-27.198c-2.2-.6-4.2-1.6-6.4-2-57.2-8.8-102.4-56.4-106.2-112.199-4.401-62.4
@@ -30,25 +30,21 @@
     <img
       [src]="recipe?.image"
       alt="{{ recipe?.name }}"
-      class="img-responsive">
+      class="img-responsive img">
   </div>
-  <h2>{{ recipe?.name }}</h2>
-  <div class="row">
-    <div class="col-xs-12">
-      {{recipe?.description}}
-    </div>
+  <div class="recipe-name text-center">
+    <span>{{ recipe?.name }}</span>
   </div>
-  <div class="row">
-    <div class="col-xs-12">
-      <ul class="list-group">
-        <li
-          class="list-group-item"
-          *ngFor="let ingredient of recipe?.ingredients">
-          {{ingredient.name}} - {{ingredient.amount}}
-        </li>
-      </ul>
-    </div>
-  </div>
+  <p class="text-center">
+    {{ recipe?.description }}
+  </p>
+  <ul class="list-group">
+    <li
+      class="list-group-item"
+      *ngFor="let ingredient of recipe?.ingredients">
+      {{ingredient.name}} - {{ingredient.amount}}
+    </li>
+  </ul>
 </ng-container>
 <ng-template #loader>
   <app-loader></app-loader>

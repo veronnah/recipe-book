@@ -1,6 +1,7 @@
 <div class="recipes-container d-flex justify-between">
   <app-recipe-list class="recipe-list-container" (isLoaded)="onLoaded($event)"></app-recipe-list>
-  <div *ngIf="isLoaded; else loader" class="recipe-detail-container">
+  <div *ngIf="isLoaded; else loader"
+    class="recipe-detail-container">
     <router-outlet></router-outlet>
   </div>
 </div>

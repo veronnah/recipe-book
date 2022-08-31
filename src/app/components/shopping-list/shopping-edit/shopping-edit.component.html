@@ -19,6 +19,13 @@
             formControlName="amount"
             [pattern]="">
         </div>
+        <mat-form-field appearance="standard" class="units-field">
+          <mat-select [(value)]="selectedUnits">
+            <mat-option *ngFor="let unit of units" [value]="unit">
+              {{ unit }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
       </div>
       <div class="row">
         <div class="col-xs-12 actions">

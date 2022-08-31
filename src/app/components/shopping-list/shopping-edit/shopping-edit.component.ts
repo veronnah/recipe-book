@@ -17,6 +17,12 @@ export class ShoppingEditComponent implements OnInit, OnDestroy {
   public editMode: boolean;
   public editingSub: Subscription;
   public onlyPositiveNumbers: string;
+  public units: any[] = [
+    'gr',
+    'ml',
+    'pc',
+  ];
+  public selectedUnits: string = this.units[0];
 
   constructor(
     private shoppingListService: ShoppingListService,
@@ -30,7 +36,7 @@ export class ShoppingEditComponent implements OnInit, OnDestroy {
     this.setPattern();
   }
 
-  public setPattern(): void{
+  public setPattern(): void {
     this.onlyPositiveNumbers = Patterns.onlyPositiveNum;
   }
 

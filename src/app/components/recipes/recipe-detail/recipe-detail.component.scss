@@ -8,6 +8,18 @@
   top: 35px;
 }
 
+.recipe-name {
+  margin-top: 14px;
+  margin-bottom: 10px;
+
+  span {
+    font-size: 30px;
+    background-color: #dfd6c8bf;
+    line-height: 50px;
+    font-weight: 600;
+  }
+}
+
 .btn-group {
   &.open {
     .dropdown-toggle {
