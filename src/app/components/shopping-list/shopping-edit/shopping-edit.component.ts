@@ -1,7 +1,7 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { Ingredient } from "../../../models/ingredient.model";
 import { ShoppingListService } from "../../../services/shopping-list.service";
-import { UntypedFormBuilder, UntypedFormGroup, Validators } from "@angular/forms";
+import { FormGroupDirective, UntypedFormBuilder, UntypedFormGroup, Validators } from "@angular/forms";
 import { Subscription } from "rxjs";
 import { Patterns } from "../../../constants/patterns.constant";
 
@@ -11,17 +11,14 @@ import { Patterns } from "../../../constants/patterns.constant";
   styleUrls: ['./shopping-edit.component.scss']
 })
 export class ShoppingEditComponent implements OnInit, OnDestroy {
+  @Input() ingredients: Ingredient[];
   public addIngredientsForm: UntypedFormGroup;
   public editedItemIdx: number;
   public editedItem: Ingredient;
   public editMode: boolean;
   public editingSub: Subscription;
   public onlyPositiveNumbers: string;
-  public units: any[] = [
-    'gr',
-    'ml',
-    'pc',
-  ];
+  public units: string[] = ['gr', 'kg', 'ml', 'pcs'];
   public selectedUnits: string = this.units[0];
 
   constructor(
@@ -44,6 +41,7 @@ export class ShoppingEditComponent implements OnInit, OnDestroy {
     this.addIngredientsForm = this.fb.group({
       name: ['', Validators.required],
       amount: ['', Validators.required],
+      unit: [this.units[0], Validators.required],
     })
   }
 
@@ -52,26 +50,29 @@ export class ShoppingEditComponent implements OnInit, OnDestroy {
       .subscribe((index: number) => {
         this.editedItemIdx = index;
         this.editMode = true;
-        this.editedItem = this.shoppingListService.getIngredient(index);
+        this.editedItem = this.ingredients[index];
         this.addIngredientsForm.patchValue({
           name: this.editedItem.name,
           amount: this.editedItem.amount,
+          unit: this.editedItem.unit,
         });
       });
   }
 
-  public onSubmit(): void {
+  public onSubmit(formDirective: FormGroupDirective): void {
     const newIngredient: Ingredient = this.addIngredientsForm.value;
     if (this.editMode) {
-      this.shoppingListService.updateIngredient(this.editedItemIdx, newIngredient)
+      this.shoppingListService.updateIngredient(this.editedItemIdx, newIngredient).subscribe();
     } else {
-      this.shoppingListService.addIngredient(newIngredient);
+      this.shoppingListService.addIngredient(newIngredient).subscribe(() => {
+      });
     }
     this.clearForm();
+    formDirective.resetForm();
   }
 
   public deleteItem(): void {
-    this.shoppingListService.deleteIngredient(this.editedItemIdx);
+    this.shoppingListService.deleteIngredient(this.editedItemIdx).subscribe();
     this.clearForm();
   }
 

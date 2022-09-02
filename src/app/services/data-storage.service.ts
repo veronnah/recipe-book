@@ -18,17 +18,17 @@ export class DataStorageService {
 
   public storeRecipes(): void {
     const recipes = this.recipeService.getRecipes();
-    this.http.put<Recipe[]>(`${environment.apiUrl}recipes.json`, recipes)
+    this.http.put<Recipe[]>(`${environment.apiUrl}/recipes.json`, recipes)
       .subscribe(() => {
       });
   }
 
   public fetchRecipes(): Observable<Recipe[]> {
     return this.http.get<Recipe[]>(
-      `${environment.apiUrl}recipes.json`)
+      `${environment.apiUrl}/recipes.json`)
       .pipe(
-        map(recipes => {
-          return recipes.map(recipe => {
+        map((recipes: Recipe[]) => {
+          return recipes.map((recipe: Recipe) => {
             return {
               ...recipe,
               ingredients: recipe.ingredients ? recipe.ingredients : [],

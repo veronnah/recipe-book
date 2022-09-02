@@ -1,54 +1,54 @@
-<div class="row">
-  <div class="col-xs-12">
-    <form [formGroup]="addIngredientsForm" (ngSubmit)="onSubmit()">
-      <div class="row">
-        <div class="col-sm-5 form-group">
-          <label for="name">Name</label>
-          <input
-            type="text"
-            id="name"
-            class="form-control"
-            formControlName="name">
-        </div>
-        <div class="col-sm-2 form-group">
-          <label for="amount">Amount</label>
-          <input
-            type="number"
-            id="amount"
-            class="form-control"
-            formControlName="amount"
-            [pattern]="">
-        </div>
-        <mat-form-field appearance="standard" class="units-field">
-          <mat-select [(value)]="selectedUnits">
-            <mat-option *ngFor="let unit of units" [value]="unit">
-              {{ unit }}
-            </mat-option>
-          </mat-select>
-        </mat-form-field>
-      </div>
-      <div class="row">
-        <div class="col-xs-12 actions">
-          <button
-            type="submit"
-            class="btn btn-success"
-            [disabled]="addIngredientsForm.invalid">
-            {{ editMode ? 'Update' : 'Add' }}
-          </button>
-          <button
-            type="button" class="btn btn-danger"
-            (click)="deleteItem()"
-            *ngIf="editMode">
-            Delete
-          </button>
-          <button
-            type="button"
-            class="btn btn-primary"
-            (click)="clearForm()">
-            Clear
-          </button>
-        </div>
-      </div>
-    </form>
+<form class="shopping-list-form d-flex align-center justify-between"
+      [formGroup]="addIngredientsForm"
+      #formDirective="ngForm"
+      (ngSubmit)="onSubmit(formDirective)">
+  <div class="fields d-flex">
+    <div class="form-group name-field">
+      <label for="name">Name</label>
+      <input
+        type="text"
+        id="name"
+        class="form-control"
+        formControlName="name">
+    </div>
+    <div class="form-group amount-field">
+      <label for="amount">Amount</label>
+      <input
+        type="number"
+        id="amount"
+        min="0"
+        class="form-control"
+        formControlName="amount"
+        oninput="validity.valid || (value='')">
+    </div>
+    <mat-form-field appearance="standard" class="units-field">
+      <mat-select [(value)]="selectedUnits" formControlName="unit">
+        <mat-option
+          *ngFor="let unit of units"
+          [value]="unit">
+          {{ unit }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
   </div>
-</div>
+  <div class="actions">
+    <button
+      type="submit"
+      class="btn btn-green"
+      [disabled]="addIngredientsForm.invalid">
+      {{ editMode ? 'Update' : 'Add' }}
+    </button>
+    <button
+      type="button" class="btn btn-danger"
+      (click)="deleteItem()"
+      *ngIf="editMode">
+      Delete
+    </button>
+    <button
+      type="button"
+      class="btn-orange"
+      (click)="clearForm()">
+      Clear
+    </button>
+  </div>
+</form>

@@ -26,17 +26,6 @@ a {
   max-height: 400px;
 }
 
-.units-field {
-  .mat-form-field-wrapper {
-    height: 78px;
-    width: 50px;
-  }
-}
-
-.mat-primary .mat-option.mat-selected:not(.mat-option-disabled) {
-  color: #71884d;
-}
-
 button {
   border: none;
   padding: 6px 12px;
@@ -44,6 +33,49 @@ button {
   transition: .3s;
 }
 
+//Mat form fields
+.units-field {
+  .mat-form-field-wrapper {
+    height: 78px;
+    width: 50px;
+  }
+}
+
+.mat-select-panel {
+  .mat-option {
+    transition: .4s;
+
+    &.mat-selected {
+      &:not(.mat-option-multiple) {
+        color: #585050;
+        background: rgb(245 233 227);
+      }
+    }
+  }
+}
+
+.mat-form-field {
+  &.mat-focused {
+    .mat-form-field-ripple {
+      background-color: unset;
+    }
+
+    &.mat-primary {
+      .mat-select-arrow {
+        color: unset;
+      }
+    }
+  }
+}
+
+.form-control {
+  &:focus {
+    box-shadow: none;
+    border-color: #ccc;
+  }
+}
+
+//Reusable classes
 .text-center {
   text-align: center;
 }
@@ -74,7 +106,6 @@ button {
 
 .btn-green {
   color: #fff;
-  text-transform: uppercase;
   background-color: #b6cf7d;
 
   &:hover {
@@ -82,11 +113,12 @@ button {
   }
 }
 
-.btn-main {
+.btn-orange {
   color: #fff;
-  background-color: #000;
+  background-color: #eb9164;
 }
 
+//Mixins
 @mixin column-cards-flex {
   display: flex;
   flex-direction: column;
@@ -104,6 +136,7 @@ button {
   justify-content: center;
 }
 
+//Animations
 .animate {
   animation-duration: 0.3s;
   -webkit-animation-duration: 0.3s;

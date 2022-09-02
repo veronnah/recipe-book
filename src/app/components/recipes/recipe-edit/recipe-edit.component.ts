@@ -96,9 +96,7 @@ export class RecipeEditComponent implements OnInit {
       || event.dataTransfer.files && event.dataTransfer.files.length) {
       const [file] = event.target.files || event.dataTransfer.files;
       reader.readAsDataURL(file);
-
       reader.onload = () => {
-
         this.recipeForm.patchValue({
           image: reader.result
         });

@@ -1,5 +1,32 @@
 @import "src/styles";
 
-.actions {
-  @include row-cards-flex;
+.shopping-list-form {
+  margin-top: 40px;
+  gap: 100px;
+
+  .fields {
+    width: 100%;
+
+    .form-group {
+      width: 100%;
+      max-width: 500px;
+
+      &.name-field {
+        margin-right: 30px;
+      }
+
+      &.amount-field {
+        max-width: 175px;
+        margin-right: 14px;
+      }
+
+      label {
+        font-weight: 500;
+      }
+    }
+  }
+
+  .actions {
+    @include row-cards-flex;
+  }
 }
