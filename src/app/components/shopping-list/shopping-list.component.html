@@ -1,7 +1,6 @@
-<app-shopping-edit
-  [ingredients]="ingredients">
+<app-shopping-edit [ingredients]="ingredients">
 </app-shopping-edit>
-<hr>
+<mat-divider></mat-divider>
 <ul class="list-group" *ngIf="isLoaded; else loader">
   <a class="list-group-item"
      *ngFor="let ingredient of ingredients; let i = index"

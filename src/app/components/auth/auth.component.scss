@@ -1,9 +1,60 @@
 form {
+  max-width: 460px;
+  width: 100%;
+  margin-top: 60px;
+
+  label {
+    font-weight: 500;
+  }
+
+  .form-group {
+    &.password {
+      position: relative;
+
+      button {
+        position: absolute;
+        right: 0;
+        top: 20px;
+
+        .hide-pass-icon {
+          font-size: 20px;
+        }
+      }
+    }
+  }
+
+  .hide-pass-icon {
+    color: #ffdd79;
+  }
+
+  .fields {
+    width: 100%;
+  }
+
+  .toggle-group {
+    width: fit-content;
+    z-index: 6 !important;
+
+    img {
+      transform: scale(1.07);
+      width: 77px;
+    }
+  }
+
   .actions {
+    &.transform {
+      transform: translateY(-48px);
+    }
+
     .btn-login {
       width: 96px;
       text-align: left;
       position: relative;
+
+      &:disabled {
+        background-color: #a1a1a1;
+      }
     }
   }
 }
+

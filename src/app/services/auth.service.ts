@@ -24,12 +24,17 @@ export class AuthService {
       `https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=${environment.apiKey}`,
       {
         ...body,
-        returnSecureToken: true
+        returnSecureToken: true,
       }
     ).pipe(
       catchError(this.handleError),
       tap((authResponse: AuthResponse) => {
-        this.handleAuth(authResponse.email, authResponse.idToken, authResponse.localId, +authResponse.expiresIn);
+        this.handleAuth(
+          authResponse.email,
+          authResponse.idToken,
+          authResponse.localId,
+          +authResponse.expiresIn,
+        );
       })
     );
   }
@@ -44,7 +49,12 @@ export class AuthService {
     ).pipe(
       catchError(this.handleError),
       tap((authResponse: AuthResponse) => {
-        this.handleAuth(authResponse.email, authResponse.idToken, authResponse.localId, +authResponse.expiresIn);
+        this.handleAuth(
+          authResponse.email,
+          authResponse.idToken,
+          authResponse.localId,
+          +authResponse.expiresIn
+        );
       }));
   }
 
@@ -85,7 +95,7 @@ export class AuthService {
     }, expirationDuration)
   }
 
-  private handleAuth(email: string, idToken: string, localId: string, expiresIn: number) {
+  private handleAuth(email: string, idToken: string, localId: string, expiresIn: number, gender?: string) {
     const expiresInSec: number = expiresIn * 1000;
     const expirationDate: Date = new Date(new Date().getTime() + expiresInSec);
     const user = new User(email, idToken, expirationDate, localId);

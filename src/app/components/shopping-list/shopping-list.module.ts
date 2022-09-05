@@ -12,12 +12,12 @@ import { MatSelectModule } from '@angular/material/select';
     ShoppingListComponent,
     ShoppingEditComponent,
   ],
-    imports: [
-        ReactiveFormsModule,
-        SharedModule,
-        ShoppingListRoutingModule,
-        MatSelectModule,
-    ],
+  imports: [
+    ReactiveFormsModule,
+    SharedModule,
+    ShoppingListRoutingModule,
+    MatSelectModule,
+  ],
   providers: [],
 })
 export class ShoppingListModule {

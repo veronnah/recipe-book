@@ -3,9 +3,9 @@ export class User {
     public email: string,
     private _token: string,
     private _tokenExpirationDate: Date,
+    public gender?: string,
     public id?: string,
     public password?: string,
-    public isSecureToken?: boolean,
   ) {
   }
 

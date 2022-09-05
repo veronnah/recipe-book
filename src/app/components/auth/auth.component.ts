@@ -15,6 +15,7 @@ export class AuthComponent implements OnInit {
   public authForm: FormGroup;
   public isSubmitted: boolean;
   public error: string;
+  public hide: boolean = true;
 
   constructor(
     private fb: FormBuilder,
@@ -31,6 +32,7 @@ export class AuthComponent implements OnInit {
     this.authForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(8)]],
+      gender: [''],
     })
   }
 
@@ -67,14 +69,17 @@ export class AuthComponent implements OnInit {
   private disableControls(): void {
     this.authForm.controls.email.disable();
     this.authForm.controls.password.disable();
+    this.authForm.controls.gender.disable();
   }
 
   private enableControls(): void {
     this.authForm.controls.email.enable();
     this.authForm.controls.password.enable();
+    this.authForm.controls.gender.enable();
   }
 
   public onSwitchMode(): void {
     this.isLoginMode = !this.isLoginMode;
+    this.authForm.reset();
   }
 }
