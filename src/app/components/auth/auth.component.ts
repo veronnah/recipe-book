@@ -80,6 +80,11 @@ export class AuthComponent implements OnInit {
 
   public onSwitchMode(): void {
     this.isLoginMode = !this.isLoginMode;
+    if (this.isLoginMode) {
+      this.authForm.controls.gender.clearValidators();
+    } else {
+      this.authForm.controls.gender.addValidators(Validators.required);
+    }
     this.authForm.reset();
   }
 }

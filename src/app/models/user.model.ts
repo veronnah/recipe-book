@@ -3,8 +3,8 @@ export class User {
     public email: string,
     private _token: string,
     private _tokenExpirationDate: Date,
-    public gender?: string,
     public id?: string,
+    public gender?: string,
     public password?: string,
   ) {
   }
@@ -20,5 +20,10 @@ export class User {
   get tokenExpirationDate() {
     return this._tokenExpirationDate;
   }
+}
 
+export interface UserDetails {
+  email: string;
+  gender?: string;
+  username?: string;
 }

@@ -5,7 +5,6 @@ export class AuthResponse {
     public idToken: string,
     public localId: string,
     public refreshToken: string,
-    public gender?: string,
     public registered?: string,
     public kind?: string,
   ) {

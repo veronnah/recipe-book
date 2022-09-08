@@ -8,21 +8,24 @@
         <li routerLinkActive="active" *ngIf="!isAuthenticated">
           <a routerLink="auth">Sign in</a>
         </li>
-        <li routerLinkActive="active" *ngIf="isAuthenticated">
-          <a routerLink="recipes">Recipes</a>
-        </li>
-        <li routerLinkActive="active">
-          <a routerLink="shopping-list">Shopping List</a>
-        </li>
+        <ng-container *ngIf="isAuthenticated">
+          <li routerLinkActive="active">
+            <a routerLink="recipes">Recipes</a>
+          </li>
+          <li routerLinkActive="active">
+            <a routerLink="shopping-list">Shopping List</a>
+          </li>
+        </ng-container>
       </ul>
-      <ul class="nav navbar-nav navbar-right d-flex align-center" *ngIf="isAuthenticated">
+      <ul class="nav navbar-nav navbar-right d-flex align-center" *ngIf="isAuthenticated && userDetails.gender">
         <li routerLinkActive="active">
           <button class="btn-green btn-new" routerLink="recipes/new">New Recipe</button>
         </li>
         <li class="dropdown" appToggleClassOpen>
-          <img src="assets/images/woman-cook.svg" alt="user's avatar">
+          <img *ngIf="userDetails.gender === 'female'" src="assets/images/woman-cook.svg" alt="user's avatar">
+          <img *ngIf="userDetails.gender === 'male'" src="assets/images/man-cook.svg" alt="user's avatar">
           <ul class="dropdown-menu animate slideIn">
-            <li><a>{{ userEmail }}</a></li>
+            <li><a>{{ this.userDetails.email }}</a></li>
             <li (click)="onLogout()">
               <a>Logout</a>
             </li>

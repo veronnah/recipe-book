@@ -18,9 +18,7 @@ export class DataStorageService {
 
   public storeRecipes(): void {
     const recipes = this.recipeService.getRecipes();
-    this.http.put<Recipe[]>(`${environment.apiUrl}/recipes.json`, recipes)
-      .subscribe(() => {
-      });
+    this.http.put<Recipe[]>(`${environment.apiUrl}/recipes.json`, recipes).subscribe();
   }
 
   public fetchRecipes(): Observable<Recipe[]> {

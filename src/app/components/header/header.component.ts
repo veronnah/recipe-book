@@ -2,7 +2,7 @@ import { Component, OnDestroy, OnInit } from "@angular/core";
 import { DataStorageService } from "../../services/data-storage.service";
 import { AuthService } from "../../services/auth.service";
 import { Subscription } from "rxjs";
-import { User } from "../../models/user.model";
+import { User, UserDetails } from "../../models/user.model";
 
 @Component({
   selector: 'app-header',
@@ -12,8 +12,9 @@ import { User } from "../../models/user.model";
 
 export class HeaderComponent implements OnInit, OnDestroy {
   private userSub: Subscription;
+  private userDetailsSub: Subscription;
   public isAuthenticated: boolean;
-  public userEmail: string;
+  public userDetails: UserDetails;
 
   constructor(
     private dataStorageService: DataStorageService,
@@ -22,25 +23,41 @@ export class HeaderComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    this.userSub = this.authService.user.subscribe((userData: User) => {
-      this.isAuthenticated = !!userData;
-      this.userEmail = userData?.email;
-    });
+    this.getUserData();
+    this.getUserDetails();
+    this.getUserDetailsFromStorage();
   }
 
-  ngOnDestroy(): void {
-    this.userSub?.unsubscribe();
+  public getUserData(): void {
+    this.userSub = this.authService.user
+      .subscribe((userData: User) => {
+        this.isAuthenticated = !!userData;
+      });
   }
 
-  public onSaveData(): void {
-    this.dataStorageService.storeRecipes();
+  public getUserDetails(): void {
+    this.userDetailsSub = this.authService.userDetails
+      .subscribe((userDetails: UserDetails) => {
+        if (userDetails) {
+          this.userDetails = {
+            email: userDetails?.email,
+            gender: userDetails?.gender,
+          }
+          localStorage.setItem('userDetails', JSON.stringify(userDetails));
+        }
+      });
   }
 
-  public onFetchData(): void {
-    this.dataStorageService.fetchRecipes().subscribe();
+  public getUserDetailsFromStorage(): void {
+    this.userDetails = JSON.parse(localStorage.getItem('userDetails'));
   }
 
   public onLogout(): void {
     this.authService.logout();
+  }
+
+  ngOnDestroy(): void {
+    this.userSub?.unsubscribe();
+    this.userDetailsSub?.unsubscribe();
   }
 }

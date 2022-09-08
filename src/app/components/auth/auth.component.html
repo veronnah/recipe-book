@@ -48,18 +48,18 @@
     </div>
     <div class="actions" [class.transform]="!isLoginMode">
       <button
+        class="btn-orange"
+        (click)="onSwitchMode()"
+        type="button">
+        Switch to {{ isLoginMode ? 'Sign up' : 'Login' }}
+      </button>
+      |
+      <button
         class="btn-green btn-login"
         type="submit"
         [disabled]="authForm.invalid">
         {{ isLoginMode ? 'Login' : 'Sign up' }}
         <app-spinner *ngIf="isSubmitted"></app-spinner>
-      </button>
-      |
-      <button
-        class="btn-orange"
-        (click)="onSwitchMode()"
-        type="button">
-        Switch to {{ isLoginMode ? 'Sign up' : 'Login' }}
       </button>
     </div>
   </form>
