@@ -2,11 +2,15 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Ingredient } from "../../models/ingredient.model";
 import { ShoppingListService } from "../../services/shopping-list.service";
 import { Subscription } from "rxjs";
+import { routeFadeStateTrigger } from '../../shared/animations/fader';
 
 @Component({
   selector: 'app-shopping-list',
   templateUrl: './shopping-list.component.html',
-  styleUrls: ['./shopping-list.component.scss']
+  styleUrls: ['./shopping-list.component.scss'],
+  animations: [
+    routeFadeStateTrigger,
+  ],
 })
 export class ShoppingListComponent implements OnInit, OnDestroy {
   public ingredients: Ingredient[] = [];

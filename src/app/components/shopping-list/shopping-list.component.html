@@ -8,7 +8,7 @@
     {{ ingredient.name }}: {{ ingredient.amount }} {{ ingredient.unit }}
   </a>
 </ul>
-<h2 *ngIf="isLoaded && !ingredients.length">No ingredients, try to add some</h2>
+<h2 *ngIf="isLoaded && !ingredients?.length">No ingredients, try to add some</h2>
 <ng-template #loader>
   <app-loader></app-loader>
 </ng-template>

@@ -1,19 +1,23 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostBinding, OnInit } from '@angular/core';
 import { Recipe } from "../../../models/recipe.model";
 import { RecipeService } from "../../../services/recipe.service";
 import { ActivatedRoute, Params, Router } from "@angular/router";
 import { DataStorageService } from "../../../services/data-storage.service";
-import { animate, style, transition, trigger } from '@angular/animations';
+import { routeFadeStateTrigger } from '../../../shared/animations/fader';
 
 @Component({
   selector: 'app-recipe-detail',
   templateUrl: './recipe-detail.component.html',
   styleUrls: ['./recipe-detail.component.scss'],
+  animations: [
+    routeFadeStateTrigger,
+  ]
 })
 export class RecipeDetailComponent implements OnInit {
   public recipe: Recipe;
   public recipeId: number;
   public isLoaded: boolean;
+  @HostBinding('@routeFadeState') routeAnimation = true;
 
   constructor(
     private recipeService: RecipeService,

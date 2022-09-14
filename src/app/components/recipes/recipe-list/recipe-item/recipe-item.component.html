@@ -1,4 +1,5 @@
 <a [routerLink]=[recipeId]
+   (click)="navigateToRecipeDetails()"
    class="list-group-item clearfix"
    routerLinkActive="active">
   <div class="pull-left">
@@ -6,7 +7,7 @@
       {{ recipe.name }}
     </h4>
     <p class="list-group-item-text">
-      {{  (recipe.description.length > 6) ?
+      {{ (recipe.description.length > 6) ?
       (recipe.description | slice:0:54) + '..' : (recipe.description) }}
     </p>
   </div>
