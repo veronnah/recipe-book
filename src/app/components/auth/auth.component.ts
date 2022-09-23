@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import { AbstractControl, FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { AuthService } from "../../services/auth.service";
 import { Observable } from "rxjs";
 import { AuthResponse } from "../../models/authResponse.model";
@@ -34,6 +34,18 @@ export class AuthComponent implements OnInit {
       password: ['', [Validators.required, Validators.minLength(8)]],
       gender: [''],
     })
+  }
+
+  get email(): AbstractControl {
+    return this.authForm.controls.email;
+  }
+
+  get password(): AbstractControl {
+    return this.authForm.controls.password;
+  }
+
+  get gender(): AbstractControl {
+    return this.authForm.controls.gender;
   }
 
   public onSubmit(): void {

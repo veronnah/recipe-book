@@ -2,6 +2,7 @@ form {
   max-width: 460px;
   width: 100%;
   margin-top: 60px;
+  position: relative;
 
   label {
     font-weight: 500;
@@ -42,9 +43,9 @@ form {
   }
 
   .actions {
-    &.transform {
-      transform: translateY(-48px);
-    }
+    position: absolute;
+    /* bottom: -96px; */
+    top: 194px;
 
     .btn-login {
       width: 96px;

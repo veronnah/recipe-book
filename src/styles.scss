@@ -75,6 +75,10 @@ button {
   }
 }
 
+textarea {
+  max-width: 100%;
+}
+
 .mat-button-toggle-appearance-standard {
   .mat-button-toggle-focus-overlay {
     transition: .4s;

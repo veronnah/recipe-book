@@ -33,7 +33,7 @@
     <div
       class="form-group d-flex justify-between"
       *ngIf="!isLoginMode">
-      <label for="password">Choose gender</label>
+      <label for="password">Choose gender: {{ gender.value }}</label>
       <mat-button-toggle-group
         class="toggle-group"
         formControlName="gender"

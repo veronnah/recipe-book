@@ -10,12 +10,15 @@ import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
+import { EditUserDataDialogComponent } from './components/edit-user-data-dialog/edit-user-data-dialog.component';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
     LoaderComponent,
     ToggleClassOpenDirective,
     SpinnerComponent,
+    EditUserDataDialogComponent,
   ],
   imports: [
     RouterModule,
@@ -25,6 +28,7 @@ import { MatInputModule } from '@angular/material/input';
     MatIconModule,
     MatButtonModule,
     MatInputModule,
+    MatDialogModule,
   ],
   exports: [
     RouterModule,
@@ -39,6 +43,7 @@ import { MatInputModule } from '@angular/material/input';
     MatIconModule,
     MatButtonModule,
     MatInputModule,
+    MatDialogModule,
   ],
 })
 export class SharedModule {
