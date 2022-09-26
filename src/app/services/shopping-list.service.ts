@@ -8,7 +8,7 @@ import { environment } from '../../environments/environment';
   providedIn: 'root'
 })
 export class ShoppingListService {
-  public ingredients: Ingredient[];
+  public ingredients: Ingredient[] = [];
   public ingredientAdded: Subject<Ingredient[]> = new Subject<Ingredient[]>();
   public editingItemIdx: Subject<number> = new Subject<number>();
 
@@ -42,9 +42,10 @@ export class ShoppingListService {
     return this.putIngredients();
   }
 
-  public addIngredients(ingredients: Ingredient[]): void {
+  public addIngredients(ingredients: Ingredient[]): Observable<Ingredient[]> {
     this.ingredients.push(...ingredients);
     this.ingredientAdded.next(this.ingredients.slice());
+    return this.putIngredients();
   }
 
   public updateIngredient(index: number, newIngredient: Ingredient): Observable<Ingredient[]> {

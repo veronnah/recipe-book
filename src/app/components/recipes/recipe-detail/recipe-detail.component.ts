@@ -4,6 +4,8 @@ import { RecipeService } from "../../../services/recipe.service";
 import { ActivatedRoute, Params, Router } from "@angular/router";
 import { DataStorageService } from "../../../services/data-storage.service";
 import { routeFadeStateTrigger } from '../../../shared/animations/fader';
+import { MatDialog } from '@angular/material/dialog';
+import { ConfirmationPopupComponent } from '../../../shared/components/confirmation-popup/confirmation-popup.component';
 
 @Component({
   selector: 'app-recipe-detail',
@@ -23,6 +25,7 @@ export class RecipeDetailComponent implements OnInit {
     private recipeService: RecipeService,
     private dataStorageService: DataStorageService,
     private route: ActivatedRoute,
+    public dialog: MatDialog,
     private router: Router,
   ) {
   }
@@ -38,6 +41,15 @@ export class RecipeDetailComponent implements OnInit {
         this.recipe = this.recipeService.getRecipe(this.recipeId);
         this.isLoaded = true;
       });
+  }
+
+  public openConfirmationDialog() {
+    const dialogRef = this.dialog.open(ConfirmationPopupComponent);
+    dialogRef.afterClosed().subscribe((result: string) => {
+      if (result === 'confirmed') {
+        this.onDeleteRecipe();
+      }
+    });
   }
 
   public onDeleteRecipe(): void {

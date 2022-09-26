@@ -118,6 +118,14 @@ textarea {
   justify-content: flex-end;
 }
 
+.g-20 {
+  gap: 20px;
+}
+
+.h-50 {
+  height: 50px;
+}
+
 .btn-green {
   color: #fff;
   background-color: #b6cf7d;
@@ -130,6 +138,10 @@ textarea {
 .btn-orange {
   color: #fff;
   background-color: #eb9164;
+}
+
+.cdk-overlay-dark-backdrop {
+  background: rgba(0, 0, 0, 0.2);
 }
 
 //Mixins

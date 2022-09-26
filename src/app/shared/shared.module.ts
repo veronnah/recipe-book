@@ -12,6 +12,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import { EditUserDataDialogComponent } from './components/edit-user-data-dialog/edit-user-data-dialog.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatSelectModule } from '@angular/material/select';
+import { ConfirmationPopupComponent } from './components/confirmation-popup/confirmation-popup.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +21,7 @@ import { MatDialogModule } from '@angular/material/dialog';
     ToggleClassOpenDirective,
     SpinnerComponent,
     EditUserDataDialogComponent,
+    ConfirmationPopupComponent,
   ],
   imports: [
     RouterModule,
@@ -29,6 +32,7 @@ import { MatDialogModule } from '@angular/material/dialog';
     MatButtonModule,
     MatInputModule,
     MatDialogModule,
+    MatSelectModule,
   ],
   exports: [
     RouterModule,
@@ -44,6 +48,7 @@ import { MatDialogModule } from '@angular/material/dialog';
     MatButtonModule,
     MatInputModule,
     MatDialogModule,
+    MatSelectModule,
   ],
 })
 export class SharedModule {

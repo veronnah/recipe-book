@@ -22,7 +22,7 @@
       <ul class="dropdown-menu dropdown-menu-right animate slideIn">
         <li (click)="addToShoppingList()"><a>To shopping list</a></li>
         <li routerLink="edit"><a>Edit recipe</a></li>
-        <li (click)="onDeleteRecipe()"><a>Delete recipe</a></li>
+        <li (click)="openConfirmationDialog()"><a>Delete recipe</a></li>
       </ul>
     </div>
   </div>
@@ -42,7 +42,8 @@
     <li
       class="list-group-item"
       *ngFor="let ingredient of recipe?.ingredients">
-      {{ingredient.name}} - {{ingredient.amount}}
+      <span class="ingredient-name">{{ ingredient.name | titlecase }}: </span>
+      <span>{{ ingredient.amount }} {{ ingredient.unit }}</span>
     </li>
   </ul>
 </ng-container>

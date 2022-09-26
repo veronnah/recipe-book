@@ -88,6 +88,11 @@ form {
     flex-direction: column;
     gap: 10px;
 
+    .button {
+      width: 100%;
+      max-width: 60px;
+    }
+
     .btn-delete {
       width: 100%;
     }
@@ -108,6 +113,18 @@ form {
         0 0 8px rgb(241 189 206 / 60%);
       }
     }
+  }
+
+  .name-control {
+    width: 100%;
+  }
+
+  .amount-control {
+    max-width: 100px;
+  }
+
+  .units-field {
+    top: -25px;
   }
 
 }

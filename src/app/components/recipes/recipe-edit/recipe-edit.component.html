@@ -1,18 +1,4 @@
 <form [formGroup]="recipeForm" (ngSubmit)="onSubmit()">
-  <div class="actions">
-    <button
-      type="submit"
-      class="btn-green"
-      [disabled]="recipeForm.invalid">
-      Save
-    </button>
-    <button
-      type="button"
-      (click)="onCancel()"
-      class="btn-danger">
-      Cancel
-    </button>
-  </div>
   <div class="form-group">
     <div
       *ngIf="!recipeForm.get('image').value"
@@ -87,39 +73,60 @@
   </div>
   <div class="ingredients" formArrayName="ingredients">
     <div
-      class="row"
+      class="d-flex g-20 h-50"
       *ngFor="let ingredientCtrl of recipeFormArray.controls; let i = index"
       [formGroupName]="i">
-      <div class="col-xs-7">
+      <div class="name-control">
         <input
           type="text"
           class="form-control"
           formControlName="name">
       </div>
-      <div class="col-xs-3">
+      <div class="amount-control">
         <input
           type="number"
           class="form-control"
           formControlName="amount">
       </div>
-      <div class="col-xs-2">
+      <mat-form-field appearance="standard" class="units-field">
+        <mat-select formControlName="unit">
+          <mat-option
+            *ngFor="let unit of units"
+            [value]="unit">
+            {{ unit }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <div class="button">
         <button
           type="button"
-          class="btn-danger btn-delete"
+          mat-stroked-button color="warn"
           (click)="onDeleteIngredients(i)">
           X
         </button>
       </div>
     </div>
-    <div class="row">
-      <div class="col-xs-12">
-        <button
-          type="button"
-          class="btn-green"
-          (click)="onAddIngredients()">
-          Add ingredient
-        </button>
-      </div>
+    <div>
+      <button
+        type="button"
+        class="btn-green"
+        (click)="onAddIngredients()">
+        Add ingredient
+      </button>
     </div>
+  </div>
+  <div class="actions">
+    <button
+      type="submit"
+      class="btn-green"
+      [disabled]="recipeForm.invalid">
+      Save
+    </button>
+    <button
+      type="button"
+      (click)="onCancel()"
+      class="btn-danger">
+      Cancel
+    </button>
   </div>
 </form>

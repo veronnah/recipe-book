@@ -16,6 +16,7 @@ export class RecipeEditComponent implements OnInit {
   public editMode: boolean;
   public recipeForm: FormGroup;
   public recipeIngredients: FormArray = new FormArray([]);
+  public units: string[] = ['gr', 'kg', 'ml', 'pcs'];
   public recipe: Recipe;
 
   constructor(
@@ -55,6 +56,7 @@ export class RecipeEditComponent implements OnInit {
               Validators.required,
               Validators.pattern(Patterns.onlyPositiveNum)
             ]],
+            unit: [ingredient.unit, Validators.required],
           })
         );
       }
