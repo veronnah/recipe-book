@@ -12,6 +12,9 @@ export class ShoppingListService {
   public ingredientAdded: Subject<Ingredient[]> = new Subject<Ingredient[]>();
   public editingItemIdx: Subject<number> = new Subject<number>();
 
+  public units: string[] = ['gr', 'kg', 'ml', 'pcs'];
+  public selectedUnits: string = this.units[0];
+
   constructor(
     private http: HttpClient,
   ) {

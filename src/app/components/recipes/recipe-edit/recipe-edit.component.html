@@ -91,7 +91,7 @@
       <mat-form-field appearance="standard" class="units-field">
         <mat-select formControlName="unit">
           <mat-option
-            *ngFor="let unit of units"
+            *ngFor="let unit of shoppingListService.units"
             [value]="unit">
             {{ unit }}
           </mat-option>

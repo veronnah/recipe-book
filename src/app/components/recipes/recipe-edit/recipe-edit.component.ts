@@ -5,6 +5,7 @@ import { RecipeService } from "../../../services/recipe.service";
 import { Recipe } from "../../../models/recipe.model";
 import { Patterns } from "../../../constants/patterns.constant";
 import { DataStorageService } from '../../../services/data-storage.service';
+import { ShoppingListService } from '../../../services/shopping-list.service';
 
 @Component({
   selector: 'app-recipe-edit',
@@ -16,7 +17,6 @@ export class RecipeEditComponent implements OnInit {
   public editMode: boolean;
   public recipeForm: FormGroup;
   public recipeIngredients: FormArray = new FormArray([]);
-  public units: string[] = ['gr', 'kg', 'ml', 'pcs'];
   public recipe: Recipe;
 
   constructor(
@@ -25,6 +25,7 @@ export class RecipeEditComponent implements OnInit {
     private fb: UntypedFormBuilder,
     private recipeService: RecipeService,
     private dataStorageService: DataStorageService,
+    public shoppingListService: ShoppingListService,
   ) {
   }
 
@@ -84,6 +85,7 @@ export class RecipeEditComponent implements OnInit {
           Validators.required,
           Validators.pattern(Patterns.onlyPositiveNum)
         ]],
+        unit: ['', Validators.required],
       })
     )
   }

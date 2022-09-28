@@ -18,11 +18,9 @@ export class ShoppingEditComponent implements OnInit, OnDestroy {
   public editMode: boolean;
   public editingSub: Subscription;
   public onlyPositiveNumbers: string;
-  public units: string[] = ['gr', 'kg', 'ml', 'pcs'];
-  public selectedUnits: string = this.units[0];
 
   constructor(
-    private shoppingListService: ShoppingListService,
+    public shoppingListService: ShoppingListService,
     public fb: UntypedFormBuilder,
   ) {
   }
@@ -41,7 +39,7 @@ export class ShoppingEditComponent implements OnInit, OnDestroy {
     this.addIngredientsForm = this.fb.group({
       name: ['', Validators.required],
       amount: ['', Validators.required],
-      unit: [this.units[0], Validators.required],
+      unit: [this.shoppingListService.units[0], Validators.required],
     })
   }
 

@@ -22,9 +22,9 @@
         oninput="validity.valid || (value='')">
     </div>
     <mat-form-field appearance="standard" class="units-field">
-      <mat-select [(value)]="selectedUnits" formControlName="unit">
+      <mat-select [(value)]="shoppingListService.selectedUnits" formControlName="unit">
         <mat-option
-          *ngFor="let unit of units"
+          *ngFor="let unit of shoppingListService.units"
           [value]="unit">
           {{ unit }}
         </mat-option>
