@@ -26,6 +26,8 @@ import { ConfirmationPopupComponent } from './components/confirmation-popup/conf
   imports: [
     RouterModule,
     CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
     MatDividerModule,
     MatButtonToggleModule,
     MatIconModule,

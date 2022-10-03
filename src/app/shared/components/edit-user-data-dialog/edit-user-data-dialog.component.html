@@ -1,6 +1,53 @@
 <h3 mat-dialog-title>
-  Edit your info:
+  Edit your profile:
 </h3>
 <div mat-dialog-content>
-  Edit your info:
+  <form [formGroup]="editForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="email">E-mail</label>
+      <input
+        type="email"
+        id="email"
+        class="form-control"
+        formControlName="email">
+    </div>
+    <div class="form-group">
+      <label for="username">Username</label>
+      <input
+        type="username"
+        id="username"
+        class="form-control"
+        formControlName="username">
+    </div>
+    <div class="form-group d-flex direction-column">
+      <label>Change gender: {{ gender.value }}</label>
+      <mat-button-toggle-group
+        class="toggle-group"
+        formControlName="gender"
+        name="favoriteColor">
+        <mat-button-toggle value="female">
+          <img src="assets/images/woman-cook.svg" alt="female">
+        </mat-button-toggle>
+        <mat-button-toggle value="male">
+          <img src="assets/images/man-cook.svg" alt="male">
+        </mat-button-toggle>
+      </mat-button-toggle-group>
+    </div>
+    <div class="actions d-flex justify-end g-10">
+      <button
+        class="btn-green btn-login"
+        type="submit"
+        [disabled]="editForm.invalid">
+        Save
+        <app-spinner *ngIf="isSubmitted"></app-spinner>
+      </button>
+      <button
+        class="btn-danger"
+        type="button"
+        mat-dialog-close="true">
+        Cancel
+        <app-spinner *ngIf="isSubmitted"></app-spinner>
+      </button>
+    </div>
+  </form>
 </div>
