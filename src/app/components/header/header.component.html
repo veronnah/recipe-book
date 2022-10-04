@@ -25,7 +25,7 @@
           <img *ngIf="userDetails.gender === 'female'" src="assets/images/woman-cook.svg" alt="user's avatar">
           <img *ngIf="userDetails.gender === 'male'" src="assets/images/man-cook.svg" alt="user's avatar">
           <ul class="dropdown-menu animate slideIn">
-            <li (click)="openEditUserDialog()"><a>{{ this.userDetails.email }}</a></li>
+            <li (click)="openEditUserDialog()"><a>{{ this.userDetails.userName || this.userDetails.email }}</a></li>
             <li (click)="onLogout()">
               <a>Logout</a>
             </li>

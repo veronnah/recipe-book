@@ -72,6 +72,10 @@ export class AuthService {
     return this.http.post<User>(`${environment.apiUrl}/users.json`, userDetails);
   }
 
+  public putUsers(users: UserDetails[]): Observable<UserDetails[]> {
+    return this.http.put<UserDetails[]>(`${environment.apiUrl}/users.json`, users);
+  }
+
   public getUserData(): Observable<User> {
     return this.http.get<User>(`${environment.apiUrl}/users.json`);
   }

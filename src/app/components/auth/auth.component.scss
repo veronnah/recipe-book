@@ -37,25 +37,13 @@ form {
     z-index: 6 !important;
 
     img {
-      transform: scale(1.07);
       width: 77px;
     }
   }
 
   .actions {
     position: absolute;
-    /* bottom: -96px; */
     top: 194px;
-
-    .btn-login {
-      width: 96px;
-      text-align: left;
-      position: relative;
-
-      &:disabled {
-        background-color: #a1a1a1;
-      }
-    }
   }
 }
 

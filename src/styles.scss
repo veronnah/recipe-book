@@ -90,6 +90,10 @@ textarea {
   text-align: center;
 }
 
+.text-left {
+  text-align: left;
+}
+
 .d-flex {
   display: flex;
 }
@@ -146,6 +150,21 @@ textarea {
 
 .cdk-overlay-dark-backdrop {
   background: rgba(0, 0, 0, 0.2);
+}
+
+.toggle-group {
+  img {
+    transform: scale(1.07);
+  }
+}
+
+.btn-login {
+  width: 96px;
+  position: relative;
+
+  &:disabled {
+    background-color: #a1a1a1;
+  }
 }
 
 //Mixins

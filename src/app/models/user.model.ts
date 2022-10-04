@@ -25,5 +25,5 @@ export class User {
 export interface UserDetails {
   email: string;
   gender?: string;
-  username?: string;
+  userName?: string;
 }
