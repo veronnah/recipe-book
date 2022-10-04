@@ -3,7 +3,7 @@
 ## Link to the host
 https://recipe-book-7a3fa.web.app/
 
-![image](https://user-images.githubusercontent.com/60988349/188196270-c559d0fe-19a6-4f5c-8a44-4a97b95e68de.png)
+![image](https://user-images.githubusercontent.com/60988349/193875577-89f2a6ce-83b1-4b72-9fbe-da00a9b7314e.png)
 
 <hr>
 
