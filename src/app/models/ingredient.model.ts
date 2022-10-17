@@ -3,6 +3,7 @@ export class Ingredient {
     public name: string,
     public amount: number,
     public unit: string,
+    public isPurchased: boolean,
   ) {
   }
 }

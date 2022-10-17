@@ -2,11 +2,14 @@
 </app-shopping-edit>
 <mat-divider></mat-divider>
 <ul class="list-group" *ngIf="isLoaded; else loader">
-  <a class="list-group-item"
-     *ngFor="let ingredient of ingredients; let i = index"
-     (click)="onEditItem(i)">
-    {{ ingredient.name | titlecase }}: {{ ingredient.amount }} {{ ingredient.unit }}
-  </a>
+  <div class="d-flex g-10 align-center" *ngFor="let ingredient of ingredients; let i = index">
+    <mat-checkbox #checkbox (change)="onChecking(checkbox.checked, i)" [checked]="ingredient.isPurchased"></mat-checkbox>
+    <a class="list-group-item"
+       [class.checked]="ingredient.isPurchased"
+       (click)="onEditItem(i)">
+      {{ ingredient.name | titlecase }}: {{ ingredient.amount }} {{ ingredient.unit }}
+    </a>
+  </div>
 </ul>
 <h2 *ngIf="isLoaded && !ingredients?.length">No ingredients, try to add some</h2>
 <ng-template #loader>

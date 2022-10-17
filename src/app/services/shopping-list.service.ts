@@ -23,7 +23,7 @@ export class ShoppingListService {
   public getIngredients(): Observable<Ingredient[]> {
     return this.http.get<Ingredient[]>(`${environment.apiUrl}/shopping-ingredients.json`)
       .pipe(map((ingredients: Ingredient[]) => {
-        this.ingredients = [];
+          this.ingredients = [];
           return ingredients?.map((ingredient: Ingredient) => {
             this.ingredients.push(ingredient);
             return {
@@ -34,9 +34,14 @@ export class ShoppingListService {
       );
   }
 
-  private putIngredients(): Observable<Ingredient[]> {
-    return this.http.put<Ingredient[]>
-    (`${environment.apiUrl}/shopping-ingredients.json`, this.ingredients);
+  public putIngredients(ingredients?: Ingredient[]): Observable<Ingredient[]> {
+    if (ingredients) {
+      return this.http.put<Ingredient[]>
+      (`${environment.apiUrl}/shopping-ingredients.json`, ingredients);
+    } else {
+      return this.http.put<Ingredient[]>
+      (`${environment.apiUrl}/shopping-ingredients.json`, this.ingredients);
+    }
   }
 
   public addIngredient(ingredient: Ingredient): Observable<Ingredient[]> {

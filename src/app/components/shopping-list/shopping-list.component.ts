@@ -17,6 +17,7 @@ export class ShoppingListComponent implements OnInit, OnDestroy {
   public isLoaded: boolean;
   private igAddSubscription: Subscription;
 
+
   constructor(private shoppingListService: ShoppingListService) {
   }
 
@@ -38,6 +39,11 @@ export class ShoppingListComponent implements OnInit, OnDestroy {
       .subscribe((ingredients: Ingredient[]) => {
         this.ingredients = ingredients;
       });
+  }
+
+  public onChecking(value: boolean, index: number): void {
+    this.ingredients[index].isPurchased = value;
+    this.shoppingListService.putIngredients(this.ingredients).subscribe();
   }
 
   public onEditItem(index: number): void {

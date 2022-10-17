@@ -3,9 +3,7 @@ import { DataStorageService } from "../../services/data-storage.service";
 import { AuthService } from "../../services/auth.service";
 import { Subscription } from "rxjs";
 import { User, UserDetails } from "../../models/user.model";
-import {
-  EditUserDataDialogComponent
-} from '../../shared/components/edit-user-data-dialog/edit-user-data-dialog.component';
+import { EditUserDataDialogComponent } from '../../shared/components/edit-user-data-dialog/edit-user-data-dialog.component';
 import { MatDialog } from '@angular/material/dialog';
 
 @Component({

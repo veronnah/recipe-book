@@ -14,6 +14,7 @@ import { EditUserDataDialogComponent } from './components/edit-user-data-dialog/
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatSelectModule } from '@angular/material/select';
 import { ConfirmationPopupComponent } from './components/confirmation-popup/confirmation-popup.component';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { ConfirmationPopupComponent } from './components/confirmation-popup/conf
     MatInputModule,
     MatDialogModule,
     MatSelectModule,
+    MatCheckboxModule,
   ],
   exports: [
     RouterModule,
@@ -51,6 +53,7 @@ import { ConfirmationPopupComponent } from './components/confirmation-popup/conf
     MatInputModule,
     MatDialogModule,
     MatSelectModule,
+    MatCheckboxModule,
   ],
 })
 export class SharedModule {
