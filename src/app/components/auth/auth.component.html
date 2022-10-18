@@ -1,6 +1,6 @@
 <div class="d-flex align-center direction-column">
   <form [formGroup]="authForm" (ngSubmit)="onSubmit()">
-    <div class="alert alert-danger" *ngIf="error">
+    <div class="alert alert-danger" [class.shown]="error">
       <p>{{ error }}</p>
     </div>
     <div class="form-group">

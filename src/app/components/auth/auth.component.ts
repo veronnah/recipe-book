@@ -70,6 +70,9 @@ export class AuthComponent implements OnInit {
         },
         error: (errorMessage) => {
           this.error = errorMessage;
+          setTimeout(() => {
+            this.error = null;
+          }, 3000)
           this.isSubmitted = false;
           this.enableControls();
         },

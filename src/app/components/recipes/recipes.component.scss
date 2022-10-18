@@ -2,6 +2,11 @@
   margin-top: 70px;
   padding-bottom: 100px;
 
+  .menu-btn {
+    display: none;
+    position: absolute;
+  }
+
   .recipe-list-container {
     max-width: 690px;
     width: 100%;
@@ -11,5 +16,29 @@
     position: relative;
     max-width: 568px;
     width: 100%;
+  }
+}
+
+@media (max-width: 767px) {
+  .menu-btn {
+    display: block !important;
+    left: 23px;
+    top: 156px;
+    z-index: 9;
+  }
+
+  .recipe-list-container {
+    opacity: 0;
+    position: absolute;
+    background-color: #fff;
+
+    &.opened {
+      opacity: 1;
+      z-index: 9;
+    }
+  }
+
+  .recipe-detail-container {
+    max-width: unset !important;
   }
 }

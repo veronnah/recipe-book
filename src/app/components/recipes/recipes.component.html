@@ -1,5 +1,6 @@
-<div class="recipes-container d-flex justify-between">
-  <app-recipe-list class="recipe-list-container" (isLoaded)="onLoaded($event)"></app-recipe-list>
+<div class="recipes-container d-flex justify-between g-20">
+  <button class="menu-btn" (click)="openMenu()">toggle menu</button>
+  <app-recipe-list [class.opened]="isMenuOpened" class="recipe-list-container" (isLoaded)="onLoaded($event)"></app-recipe-list>
   <div *ngIf="isLoaded; else loader"
        class="recipe-detail-container">
     <router-outlet></router-outlet>

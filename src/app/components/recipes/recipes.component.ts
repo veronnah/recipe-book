@@ -13,8 +13,14 @@ import { routeFadeStateTrigger } from '../../shared/animations/fader';
 export class RecipesComponent {
   @HostBinding('@routeFadeState') routeAnimation = true;
   public isLoaded: boolean;
+  public isMenuOpened: boolean;
 
   public onLoaded(isLoaded: boolean): void {
     this.isLoaded = isLoaded;
+  }
+
+  public openMenu(): void {
+    this.isMenuOpened = !this.isMenuOpened;
+    console.log(this.isMenuOpened)
   }
 }

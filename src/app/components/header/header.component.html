@@ -3,7 +3,7 @@
     <div class="navbar-header">
       <a routerLink="/" class="navbar-brand">Recipe book</a>
     </div>
-    <div class="collapse navbar-collapse">
+    <div class="navbar-collapse">
       <ul class="nav navbar-nav">
         <li routerLinkActive="active" *ngIf="!isAuthenticated">
           <a routerLink="auth">Sign in</a>
@@ -17,7 +17,8 @@
           </li>
         </ng-container>
       </ul>
-      <ul class="nav navbar-nav navbar-right d-flex align-center" *ngIf="isAuthenticated && userDetails.gender">
+      <ul class="nav navbar-nav navbar-right d-flex align-center justify-end"
+          *ngIf="isAuthenticated && userDetails.gender">
         <li routerLinkActive="active">
           <button class="btn-green btn-new" routerLink="recipes/new">New Recipe</button>
         </li>

@@ -1,6 +1,7 @@
 .list-group-item {
   transition: .4s;
   padding: 0;
+  height: 80px;
 
   &.active {
     color: #000;
@@ -29,12 +30,20 @@
 
   .pull-right {
     width: 140px;
-    height: 80px;
+    height: 100%;
 
     img {
       object-fit: cover;
       width: 100%;
       height: 100%;
+    }
+  }
+}
+
+@media (max-width: 1080px) {
+  .list-group-item {
+    .pull-left {
+      max-width: 200px;
     }
   }
 }
