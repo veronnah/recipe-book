@@ -42,8 +42,10 @@
 
 @media (max-width: 1080px) {
   .list-group-item {
+    height: 100px;
+
     .pull-left {
-      max-width: 200px;
+      max-width: 220px;
     }
   }
 }

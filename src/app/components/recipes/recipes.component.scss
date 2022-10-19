@@ -28,17 +28,24 @@
   }
 
   .recipe-list-container {
-    opacity: 0;
+    left: -100%;
     position: absolute;
-    background-color: #fff;
+    background-color: #f9f9f9;
+    transition: all .4s ease-in-out;
+    z-index: 9;
 
     &.opened {
-      opacity: 1;
-      z-index: 9;
+      left: 0;
     }
   }
 
   .recipe-detail-container {
     max-width: unset !important;
+    transition: .4s all;
+    opacity: 0;
+
+    &.opened {
+      opacity: 1;
+    }
   }
 }

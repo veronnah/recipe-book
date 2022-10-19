@@ -19,8 +19,7 @@ export class RecipesComponent {
     this.isLoaded = isLoaded;
   }
 
-  public openMenu(): void {
+  public toggleMenu(): void {
     this.isMenuOpened = !this.isMenuOpened;
-    console.log(this.isMenuOpened)
   }
 }
