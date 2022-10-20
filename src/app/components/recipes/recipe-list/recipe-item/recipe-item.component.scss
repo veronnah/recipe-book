@@ -49,3 +49,15 @@
     }
   }
 }
+
+@media (max-width: 400px) {
+  .list-group-item {
+    .list-group-item-text {
+      display: none;
+    }
+
+    .pull-left {
+      max-width: 125px;
+    }
+  }
+}

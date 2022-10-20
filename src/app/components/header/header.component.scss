@@ -40,3 +40,14 @@
     }
   }
 }
+
+@media (max-width: 767px) {
+  .navbar-right {
+    flex-direction: row-reverse;
+    gap: 10px;
+
+    li {
+      display: block;
+    }
+  }
+}

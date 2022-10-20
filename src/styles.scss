@@ -146,6 +146,10 @@ textarea {
   align-items: center;
 }
 
+.align-end {
+  align-items: end;
+}
+
 .justify-center {
   justify-content: center;
 }
@@ -177,6 +181,10 @@ textarea {
 .btn-green {
   color: #fff;
   background-color: #b6cf7d;
+
+  &:disabled {
+    opacity: .6;
+  }
 
   &:hover {
     background-color: #9db66a;

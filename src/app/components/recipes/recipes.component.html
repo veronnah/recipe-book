@@ -1,5 +1,11 @@
 <div class="recipes-container d-flex justify-between g-20">
-  <button class="menu-btn" (click)="toggleMenu()">toggle menu</button>
+  <button class="menu-btn" (click)="toggleMenu()">
+    <div class="hamburger-menu">
+      <div class="bar top"></div>
+      <div class="bar middle"></div>
+      <div class="bar bottom"></div>
+    </div>
+  </button>
   <app-recipe-list
     [class.opened]="isMenuOpened"
     class="recipe-list-container"

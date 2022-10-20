@@ -66,7 +66,10 @@ export class RecipeEditComponent implements OnInit {
 
   private initEditForm(): void {
     this.recipeForm = this.fb.group({
-      name: [this.recipe?.name, Validators.required],
+      name: [this.recipe?.name, [
+        Validators.required,
+        Validators.maxLength(27),
+      ]],
       image: [this.recipe?.image, Validators.required],
       description: [this.recipe?.description, Validators.required],
       ingredients: this.recipeIngredients,
@@ -83,7 +86,7 @@ export class RecipeEditComponent implements OnInit {
         name: ['', Validators.required],
         amount: ['', [
           Validators.required,
-          Validators.pattern(Patterns.onlyPositiveNum)
+          Validators.pattern(Patterns.onlyPositiveNum),
         ]],
         unit: ['', Validators.required],
       })
