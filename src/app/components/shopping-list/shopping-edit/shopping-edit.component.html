@@ -11,25 +11,27 @@
         class="form-control"
         formControlName="name">
     </div>
-    <div class="form-group amount-field">
-      <label for="amount">Amount</label>
-      <input
-        type="number"
-        id="amount"
-        min="0"
-        class="form-control"
-        formControlName="amount"
-        oninput="validity.valid || (value='')">
+    <div class="amount-group d-flex">
+      <div class="form-group amount-field">
+        <label for="amount">Amount</label>
+        <input
+          type="number"
+          id="amount"
+          min="0"
+          class="form-control"
+          formControlName="amount"
+          oninput="validity.valid || (value='')">
+      </div>
+      <mat-form-field appearance="standard" class="units-field">
+        <mat-select [(value)]="shoppingListService.selectedUnits" formControlName="unit">
+          <mat-option
+            *ngFor="let unit of shoppingListService.units"
+            [value]="unit">
+            {{ unit }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
     </div>
-    <mat-form-field appearance="standard" class="units-field">
-      <mat-select [(value)]="shoppingListService.selectedUnits" formControlName="unit">
-        <mat-option
-          *ngFor="let unit of shoppingListService.units"
-          [value]="unit">
-          {{ unit }}
-        </mat-option>
-      </mat-select>
-    </mat-form-field>
   </div>
   <div class="actions">
     <button

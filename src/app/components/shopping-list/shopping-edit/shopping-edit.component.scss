@@ -30,3 +30,20 @@
     @include row-cards-flex;
   }
 }
+
+@media (max-width: 767px) {
+  .shopping-list-form {
+    margin-bottom: 40px;
+    flex-direction: column;
+    gap: unset !important;
+    align-items: initial !important;
+
+    .form-group {
+      max-width: 100% !important;
+    }
+
+    .fields {
+      flex-direction: column;
+    }
+  }
+}
