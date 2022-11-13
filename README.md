@@ -9,8 +9,8 @@ https://recipe-book-7a3fa.web.app/
 <hr>
 <img width="1122" alt="image" src="https://user-images.githubusercontent.com/60988349/201515850-38599b6a-c378-4493-9ec1-0ac8d8bbb0bf.png">
 <hr>
-<img width="417" alt="image" src="https://user-images.githubusercontent.com/60988349/201515877-65e3d757-74cf-40b4-ba5d-7ff12fda849a.png">
-<img width="522" alt="image" src="https://user-images.githubusercontent.com/60988349/201515951-61cb84da-d457-4bb9-b90c-176c1d040f05.png">
+<img width="400" alt="image" src="https://user-images.githubusercontent.com/60988349/201515877-65e3d757-74cf-40b4-ba5d-7ff12fda849a.png">
+<img width="400" alt="image" src="https://user-images.githubusercontent.com/60988349/201515951-61cb84da-d457-4bb9-b90c-176c1d040f05.png">
 
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.7.
