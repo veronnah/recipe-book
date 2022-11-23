@@ -1,6 +1,6 @@
 # RecipeBook
 
-## Link to the host
+## Link to the app
 https://recipe-book-7a3fa.web.app/
 
 <img width="1099" alt="image" src="https://user-images.githubusercontent.com/60988349/201515754-b0cdc83c-6147-42f1-b9e5-4ef1451e22f8.png">
